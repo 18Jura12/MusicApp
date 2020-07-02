@@ -43,11 +43,9 @@ function create_table_users()
 		$st = $db->prepare( 
 			'CREATE TABLE IF NOT EXISTS project_users (' .
 			'username varchar(10) NOT NULL PRIMARY KEY,' .
-			'name varchar(20) NOT NULL,' .
-			'surname varchar(20) NOT NULL,' .
+			'email varchar(50) NOT NULL,' .
 			'country varchar(30) NOT NULL,' .
 			'password_hash varchar(255) NOT NULL,'.
-			'email varchar(50) NOT NULL,' .
 			'registration_sequence varchar(20) NOT NULL,' .
 			'has_registered int)'
 		);
