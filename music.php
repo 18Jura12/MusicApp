@@ -2,10 +2,12 @@
 
 if( !isset( $_SESSION ) ) session_start();
 
+//echo 'tuu';
 require_once __DIR__ . '/app/database/db.class.php';
 
 if( !isset( $_GET['rt'] ) && !isset( $_SESSION['korisnik'] ) ) { //nije nitko ulogiran
 
+    //echo 'yes';
     $controller = 'users';
     $action = 'login';
 
@@ -23,6 +25,7 @@ else if( !isset( $_GET['rt'] ) ) {
 
 else
 {
+    //echo 'no';
     $parts = explode( '/', $_GET['rt'] );
 
     if( isset( $parts[0] ) && preg_match( '/^[A-Za-z0-9]+$/', $parts[0] ) )
@@ -30,16 +33,23 @@ else
     else 
         $controller = 'channels';
 
-    if( isset( $parts[1] ) && preg_match( '/^[A-Za-z0-9]+$/', $parts[1] ) )
+    if( isset( $parts[1] ) && preg_match( '/^[A-Za-z0-9]+$/', $parts[1] ) ) {
         $action = $parts[1];
+        if($_GET['rt'] === 'users/logout') {
+
+            $action = 'login';
+
+        }
+    }
     else 
         $action = 'index';
 }
 
 $controllerName = $controller . 'Controller';
 
-if( !file_exists( __DIR__ . '/controller/' . $controllerName . '.php' ) )
+if( !file_exists( __DIR__ . '/controller/' . $controllerName . '.php' ) ) {
     error_404();
+}
 
 require_once __DIR__ . '/controller/' . $controllerName . '.php';
 
@@ -50,8 +60,9 @@ if( !class_exists( $controllerName ) ) {
 
 $con = new $controllerName();
 
-if( !method_exists( $con, $action ) )
+if( !method_exists( $con, $action ) ) {
     error_404();
+}
 
 $con->$action();
 

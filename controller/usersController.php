@@ -33,11 +33,17 @@ class usersController {
             require_once __DIR__ . '/../view/login.php';
         } else {
             $_SESSION['korisnik'] = $_POST['username'];
+            $this->pocetna();
 
-            $pjesme = Song::where('year', 2019);
-            
-            require_once __DIR__ . '/../view/home.php';
         }
+    }
+
+    public function pocetna() {
+
+        $pjesme = Song::where('year', 2019);
+            
+        require_once __DIR__ . '/../view/home.php';
+
     }
 
     public function verifyRegister() {
@@ -100,6 +106,7 @@ class usersController {
 
     public function logout() {
 
+        //echo 'tu';
         session_unset();
         session_destroy();
 
