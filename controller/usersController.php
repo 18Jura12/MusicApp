@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../model/user.class.php';
+require_once __DIR__ . '/../model/song.class.php';
 
 class usersController {
     public function login() {
@@ -32,9 +33,10 @@ class usersController {
             require_once __DIR__ . '/../view/login.php';
         } else {
             $_SESSION['korisnik'] = $_POST['username'];
-            echo 'uspjesno';
             
-            //require_once __DIR__ . '/../view/myChannels_index.php';
+            $pjesme = Song::where('year', 2019);
+
+            require_once __DIR__ . '/../view/home.php';
         }
     }
 
@@ -81,8 +83,10 @@ class usersController {
                 $isOK = mail($to, $subject, $messageMail, $headers);
    
 		        if( !$isOK ) {
-                    $message = 'Ne mogu poslati mail.';
-                    require_once __DIR__ . '/../view/register.php';
+                    //$message = 'Ne mogu poslati mail.' . $to . ' ' . $subject . ' ' . $messageMail;
+                    //$message = error_get_last()['message'];
+                    var_dump(error_get_last()['message']);
+                    //require_once __DIR__ . '/../view/register.php';
                 } else {
                     require_once __DIR__ . '/../view/registerSuccessful.php';
                 }
@@ -94,6 +98,14 @@ class usersController {
         echo 'sanducic';
     }
 
+    public function logout() {
+
+        session_unset();
+        session_destroy();
+
+        require_once __DIR__ . '/../music.php';
+
+    }
 
 }
 
