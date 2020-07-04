@@ -43,8 +43,10 @@ if( !file_exists( __DIR__ . '/controller/' . $controllerName . '.php' ) )
 
 require_once __DIR__ . '/controller/' . $controllerName . '.php';
 
-if( !class_exists( $controllerName ) )
+if( !class_exists( $controllerName ) ) {
     error_404();
+}
+    
 
 $con = new $controllerName();
 

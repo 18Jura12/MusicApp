@@ -144,6 +144,7 @@ abstract class Model {
             $st = $db->prepare( $promjena );
             $st->execute();
         } catch( PDOException $e ) {
+            echo $promjena;
             echo 'Greska: ' . $e->getMessage();
         }
     }
