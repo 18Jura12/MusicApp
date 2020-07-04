@@ -71,7 +71,77 @@ abstract class Model {
         echo '</pre>';*/
 
         return $temp;
-        
+    }
+
+    // Funkcija sprema novi ili ažurira postojeći redak u tablici $table koji pripada objektu $this.
+    // ($this->id je ključ u tablici $table).
+    public function save() {
+
+        $db = DB::getConnection();
+        $klasa = get_called_class();
+
+        $kljucevi = array_keys( $klasa::$attributes );
+
+        /*echo '<pre>';
+        print_r( $this);
+        echo '</pre>';*/
+
+        $column = $kljucevi[0];
+        $value = $this->$column;
+
+        $user = User::find( $column, $value );
+
+        $vrijednosti = [];
+
+        if( $user === NULL ) { // novi redak
+            $promjena = 'INSERT INTO ' . $klasa::$table . ' ( ';
+
+            $atributi = implode( ", ", $kljucevi );
+            $promjena .= $atributi;
+
+            foreach( $kljucevi as $kljuc ) {
+                if( $klasa::$attributes[$kljuc] !== 'int' ) {
+                    $temp = '"';
+                    $temp .= $this->$kljuc;
+                    $temp .= '"';
+                } else {
+                    $temp = $this->$kljuc;
+                }
+
+                $vrijednosti[] = $temp;
+            }
+
+            $vrijednosti = implode( ", ", $vrijednosti );
+            $promjena .= ' ) VALUES ( ' . $vrijednosti . ' )';
+
+            //print_r($promjena);
+
+        } else { // update postojeceg retka
+            $promjena = 'UPDATE ' . $klasa::$table . ' SET ';
+
+            foreach( $kljucevi as $kljuc ) {
+                if( $kljuc !== $column ) { // nije primarni kljuc
+                    if( $klasa::$attributes[$kljuc] !== 'int') {
+                        $vrijednost = '"' . $this->$kljuc . '"';
+                    } else {
+                        $vrijednost = $this->$kljuc;
+                    }
+
+                    $temp = $kljuc . ' = ' . $vrijednost;
+                    $vrijednosti[] = $temp;
+                }
+            }
+
+            $vrijednosti = implode( ", ", $vrijednosti );
+            $promjena .= ' WHERE ' . $column . ' = ' . $value;
+        }
+
+        try {
+            $st = $db->prepare( $promjena );
+            $st->execute();
+        } catch( PDOException $e ) {
+            echo 'Greska: ' . $e->getMessage();
+        }
     }
 }
 

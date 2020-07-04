@@ -65,35 +65,36 @@ class usersController {
 
                 //print_r( $newUser );
    
-                #$newUser->save(); //sprema ga u bazu
-                #
-#   
-                #// Sad mu još pošalji mail
-                #$to       = $_POST['mail'];
-                #$subject  = 'Registracijski mail';
-                #$messageMail  = 'Poštovani ' . $_POST['usernameReg'] . "!\nZa dovršetak registracije kliknite na sljedeći link: ";
-                #$messageMail .= 'http://' . $_SERVER['SERVER_NAME'] . htmlentities( dirname( $_SERVER['PHP_SELF'] ) ) . '/profil.php?rt=users/sanducic&niz=' . $reg_seq . "\n";
-#   
-                #//echo '<br>' . $messageMail;
-                #
-                #$headers  = 'From: rp2@studenti.math.hr' . "\r\n" .
-		        #        'Reply-To: rp2@studenti.math.hr' . "\r\n" .
-                #        'X-Mailer: PHP/' . phpversion();
-                #$isOK = mail($to, $subject, $messageMail, $headers);
-#   
-		        #if( !$isOK ) {
-                #    $message = 'Ne mogu poslati mail.';
-                #    require_once __DIR__ . '/../view/registerForm.php';
-                #}
-#   
-                #require_once __DIR__ . '/../view/registerSuccessful.php';
+                $newUser->save(); //sprema ga u bazu
 
-                print( 'uspjesno');
-            }
+                // Sad mu još pošalji mail
+                $to       = $_POST['mail'];
+                $subject  = 'Registracijski mail';
+                $messageMail  = 'Poštovani ' . $_POST['usernameReg'] . "!\nZa dovršetak registracije kliknite na sljedeći link: ";
+                $messageMail .= 'http://' . $_SERVER['SERVER_NAME'] . htmlentities( dirname( $_SERVER['PHP_SELF'] ) ) . '/music.php?rt=users/sanducic&niz=' . $reg_seq . "\n";
 
-            
+                //echo '<br>' . $messageMail;
+                
+                $headers  = 'From: rp2@studenti.math.hr' . "\r\n" .
+		                'Reply-To: rp2@studenti.math.hr' . "\r\n" .
+                        'X-Mailer: PHP/' . phpversion();
+                $isOK = mail($to, $subject, $messageMail, $headers);
+   
+		        if( !$isOK ) {
+                    $message = 'Ne mogu poslati mail.';
+                    require_once __DIR__ . '/../view/register.php';
+                } else {
+                    require_once __DIR__ . '/../view/registerSuccessful.php';
+                }
+            }            
         }
     }
+
+    public function sanducic() {
+        echo 'sanducic';
+    }
+
+
 }
 
 ?>
