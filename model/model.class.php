@@ -172,8 +172,6 @@ abstract class Model {
 
         return $niz;
     }
-
-
 }
 
 ?>

@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../model/user.class.php';
+require_once __DIR__ . '/../model/song.class.php';
 
 class usersController {
     public function login() {
@@ -32,6 +33,8 @@ class usersController {
             require_once __DIR__ . '/../view/login.php';
         } else {
             $_SESSION['korisnik'] = $_POST['username'];
+
+            $pjesme = Song::where('year', 2019);
             
             require_once __DIR__ . '/../view/home.php';
         }
