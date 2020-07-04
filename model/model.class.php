@@ -143,6 +143,37 @@ abstract class Model {
             echo 'Greska: ' . $e->getMessage();
         }
     }
+
+    // Funkcija vraća polje koje sadrži sve objekte iz tablice $table kojima u stupcu $column piše vrijednost
+    public static function where( $column, $value ) {
+        $db = DB::getConnection();
+
+        $klasa = get_called_class();
+        $niz = [];
+
+        try{
+            $st = $db->prepare( 'SELECT * FROM ' . $klasa::$table . ' WHERE ' . $column . ' = "' . $value . '"');   
+            $st->execute();
+        } catch(PDOException $e) {
+            echo 'Greska: ' . $e->getMessage();
+        }
+
+        while( $row = $st->fetch( PDO::FETCH_ASSOC ) ) {
+            $kljucevi = array_keys( $row );
+
+            $temp = new $klasa();
+
+            foreach( $kljucevi as $kljuc ) {
+                $temp->$kljuc = $row[$kljuc];
+            }
+
+            $niz[] = $temp;
+        }
+
+        return $niz;
+    }
+
+
 }
 
 ?>

@@ -18,7 +18,7 @@
                 <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
                 <li><a href="#">Page 1</a></li>
                 <li><a href="#">Page 2</a></li>
-                <li><a href="#">Page 3</a></li>
+                <li><a href="music.php?rt=songs/playlist">Page 3</a></li>
             </ul>
         </div>
     </nav>
