@@ -13,11 +13,21 @@ class songsController {
 
         $pjesme = explode(" ", $playlista->songs);
         $songs = [];
+        $novo = [];
 
         foreach( $pjesme as $pjesma ) {
             $song =  Song::find( 'id_song', $pjesma );
+            if( isset( $_POST['ukloni'] ) && $_POST['ukloni'] === $song->id_song ) {
+                continue;
+            }
             $songs[] = $song;
+            $novo[] = $song->id_song;
         }
+
+        $playlista->songs = implode(" ", $novo );
+        //print_r($playlista);
+
+        $playlista->save();        
 
         require_once __DIR__ . '/../view/songList.php';
     }

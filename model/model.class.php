@@ -89,7 +89,7 @@ abstract class Model {
         $column = $kljucevi[0];
         $value = $this->$column;
 
-        $user = User::find( $column, $value );
+        $user = $klasa::find( $column, $value );
 
         $vrijednosti = [];
 
@@ -128,18 +128,23 @@ abstract class Model {
                     }
 
                     $temp = $kljuc . ' = ' . $vrijednost;
-                    $vrijednosti[] = $temp;
+                    $vrijednosti[] = $temp;;
+
                 }
             }
 
+            
+
             $vrijednosti = implode( ", ", $vrijednosti );
-            $promjena .= ' WHERE ' . $column . ' = ' . $value;
+            //print_r( $vrijednosti);
+            $promjena .= $vrijednosti . ' WHERE ' . $column . ' = ' . $value;
         }
 
         try {
             $st = $db->prepare( $promjena );
             $st->execute();
         } catch( PDOException $e ) {
+            echo $promjena;
             echo 'Greska: ' . $e->getMessage();
         }
     }
