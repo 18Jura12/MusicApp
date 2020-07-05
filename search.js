@@ -15,6 +15,9 @@ function prikaziPjesmu() {
             },
             success: function( data ) {
                 console.log( data );
+                if( typeof data.error === 'undefined' ) {
+                    window.location.replace(window.location.origin + window.location.pathname + '?rt=songs/showSong&id=' + data);
+                }
             },
             error: function( xhr, status ) {
                 console.log( status );

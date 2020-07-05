@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../model/user.class.php';
 require_once __DIR__ . '/../model/song.class.php';
 require_once __DIR__ . '/../model/playlist.class.php';
+require_once __DIR__ . '/../model/message.class.php';
 
 class songsController {
 
@@ -11,23 +12,28 @@ class songsController {
         $user = User::find( 'username', $_SESSION['korisnik'] );
         $playlista = Playlist::find( 'username', $user->username );
 
-        $pjesme = explode(" ", $playlista->songs);
-        $songs = [];
-        $novo = [];
+        if( $playlista !== NULL ) {
+            $pjesme = explode(" ", $playlista->songs);
+            $songs = [];
+            $novo = [];
 
-        foreach( $pjesme as $pjesma ) {
-            $song =  Song::find( 'id_song', $pjesma );
-            if( isset( $_POST['ukloni'] ) && $_POST['ukloni'] === $song->id_song ) {
-                continue;
+            foreach( $pjesme as $pjesma ) {
+                $song =  Song::find( 'id_song', $pjesma );
+                if( isset( $_POST['ukloni'] ) && $_POST['ukloni'] === $song->id_song ) {
+                    continue;
+                }
+                $songs[] = $song;
+                $novo[] = $song->id_song;
             }
-            $songs[] = $song;
-            $novo[] = $song->id_song;
-        }
 
-        $playlista->songs = implode(" ", $novo );
-        //print_r($playlista);
+            $playlista->songs = implode(" ", $novo );
+            //print_r($playlista);
 
-        $playlista->save();        
+            $playlista->save();
+
+        } else {
+            $songs = [];
+        }       
 
         require_once __DIR__ . '/../view/songList.php';
     }
@@ -53,6 +59,12 @@ class songsController {
         
         $id = $song->id_song;
         $playlista = Playlist::find( 'username', $korisnik );
+        if( $playlista === NULL ) {
+            $playlista = Playlist::new( array( 0, $korisnik, 0, '' ) );
+            sendJSONandExit( $playlista->username);
+            $playlista->save();
+            
+        }
         $pjesme = explode(" ", $playlista->songs);
         $sadrzano = false;
 
@@ -101,13 +113,19 @@ class songsController {
         if( $song == NULL ) {
             sendJSONandExit( ['error' => 'Ne postoji pjesma!' ] );
         } else {
-            $message = [];
-            foreach( $song as $value ) {
-                $message[] = $value;
-                sendJSONandExit( $value );
-            }
+            $message = $song->id_song;
             sendJSONandExit( $message );
         }
+    }
+
+    function showSong() {
+
+        $song = Song::find( 'id_song', $_GET['id'] );
+        $komentari = Message::where( 'id_song', $_GET['id'] );
+        $korisnik = $_SESSION['korisnik'];
+
+        require_once __DIR__ . '/../view/songView.php';
+
     }
 }
 
