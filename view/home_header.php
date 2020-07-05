@@ -8,6 +8,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+    <script type="text/javascript" src="search.js"></script>
 
     <title>🎶 MusicApp</title>
 
@@ -48,17 +49,18 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="music.php?rt=users/logout"><span class="glyphicon glyphicon-log-out"></span> Odjava</a></li>
             </ul>
-            <!--Ovdje se možeš igrati sa tim pretragama po izvođačima i pjesmama. Fja nije implementirana-->
-            <form class="navbar-form navbar-right" action="music.php?rt=songs/trazi">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Pretraga">
+            <!--Ovdje se možeš igrati sa tim pretragama po izvođačima i pjesmama. Fja nije implementirana SAMO PO PJESMAMA-->
+            
+            <div class="input-group" style="padding: 10px 15px; margin-right: -15px; margin-left: -15px; max-width: 100%;">
+                <input list="datalist_pjesme" id="searchBar" type="text" class="form-control" placeholder="Pretraga">
+                <datalist id="datalist_pjesme"></datalist>
                 <div class="input-group-btn">
-                <button class="btn btn-default" type="submit">
+                <button id="gumbPretraga" class="btn btn-default" type="submit">
                     <i class="glyphicon glyphicon-search"></i>
                 </button>
                 </div>
             </div>
-            </form> 
+            
         </div>
     </nav>
     <style>

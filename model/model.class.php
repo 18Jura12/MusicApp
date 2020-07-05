@@ -39,6 +39,8 @@ abstract class Model {
             echo 'Greska: ' . $e->getMessage();
         }
 
+        //print_r($st);
+
         $row = $st->fetch( PDO::FETCH_ASSOC );
 
         if( $st->rowCount() !== 1 ) {
@@ -165,6 +167,41 @@ abstract class Model {
 
         while( $row = $st->fetch( PDO::FETCH_ASSOC ) ) {
             $kljucevi = array_keys( $row );
+
+            $temp = new $klasa();
+
+            foreach( $kljucevi as $kljuc ) {
+                $temp->$kljuc = $row[$kljuc];
+            }
+
+            $niz[] = $temp;
+        }
+
+        return $niz;
+    }
+
+    // Funkcija vraća polje koje sadrži sve objekte iz tablice $table
+    public static function all() {
+
+        $db = DB::getConnection();
+
+        $klasa = get_called_class();
+
+        try {
+            $st = $db->prepare( 'SELECT * FROM ' . $klasa::$table . '' );
+            $st->execute();
+        } catch(PDOException $e) {
+            echo 'Greska: ' . $e->getMessage();
+        }        
+
+        $niz = [];
+
+        while( $row = $st->fetch( PDO::FETCH_ASSOC ) ) {
+            $kljucevi = array_keys( $row );
+
+            /*echo '<pre>';
+            print_r( $kljucevi );
+            echo '</pre>';*/
 
             $temp = new $klasa();
 
