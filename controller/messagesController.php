@@ -22,6 +22,9 @@ class messagesController {
         $komentar->$action = $vrijednost;
         $komentar->save();
 
+        $godine = Song::column('year');
+        $zemlje = Song::column('country');
+
         require_once __DIR__ . '/../view/songView.php';
         
     }

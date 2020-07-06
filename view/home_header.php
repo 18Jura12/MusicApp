@@ -26,9 +26,13 @@
                     <!--Ovdje bih trebao dohvatiti godine, to možeš u funkciji početna dohvatiti pa ovdje ispisati u opcije.
                     Link ide na stranicu sa pjesmama iz te godine, trebao bi na toj stranici biti gumb za poredak i gumb za 
                     ukupne bodove fanova, što je onaj komplicirani dio koji sam oslovio kasnije.-->
-                        <li><a href="#">Page 1-1</a></li>
-                        <li><a href="#">Page 1-2</a></li>
-                        <li><a href="#">Page 1-3</a></li>
+                        <?php
+                        foreach($godine as $godina) {
+
+                            echo '<li><a href="music.php?rt=users/pocetna&godina='.$godina.'">'.$godina.'</a></li>';
+
+                        }
+                        ?>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -36,9 +40,13 @@
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu navbar-inverse">
                     <!--Ovdje bih trebao dohvatiti zemlje, to možeš u funkciji početna dohvatiti pa ovdje ispisati u opcije, idealno sa zastavama-->
-                        <li><a href="#">Page 1-1</a></li>
-                        <li><a href="#">Page 1-2</a></li>
-                        <li><a href="#">Page 1-3</a></li>
+                        <?php
+                        foreach($zemlje as $zemlja) {
+
+                            echo '<li><a href="music.php?rt=songs/zemlja&zemlja='.$zemlja.'">'.$zemlja.'</a></li>';
+
+                        }
+                        ?>
                     </ul>
                 </li>
                 <li><a href="music.php?rt=songs/playlist">Moje pjesme</a></li>

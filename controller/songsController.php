@@ -32,7 +32,10 @@ class songsController {
 
         } else {
             $songs = [];
-        }       
+        }      
+
+        $godine = Song::column('year');
+        $zemlje = Song::column('country'); 
 
         require_once __DIR__ . '/../view/songList.php';
     }
@@ -125,7 +128,40 @@ class songsController {
         $komentari = Message::where( 'id_song', $_GET['id'] );
         $korisnik = $_SESSION['korisnik'];
 
+        $godine = Song::column('year');
+        $zemlje = Song::column('country');
+
         require_once __DIR__ . '/../view/songView.php';
+
+    }
+
+    public function plasman() {
+
+        $song = Song::find( 'id_song', $_GET['id'] );
+        $pjesme = Song::where('year', $song->year);
+
+        foreach($pjesme as $pjesma) {
+
+            $points[] = $pjesma->semifinal_points;
+
+        }
+        array_multisort($points, SORT_DESC, $pjesme);
+
+        $godine = Song::column('year');
+        $zemlje = Song::column('country');
+
+        require_once __DIR__ . '/../view/results.php';
+
+    }
+
+    public function zemlja() {
+
+        $songs = Song::where('country', $_GET['zemlja']);
+
+        $godine = Song::column('year');
+        $zemlje = Song::column('country');
+
+        require_once __DIR__ . '/../view/countryView.php';
 
     }
 }

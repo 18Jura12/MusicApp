@@ -214,6 +214,32 @@ abstract class Model {
 
         return $niz;
     }
+
+    public static function column($column) {
+
+        $db = DB::getConnection();
+
+        $klasa = get_called_class();
+
+        try {
+            $st = $db->prepare( 'SELECT DISTINCT '.$column.' FROM ' . $klasa::$table . '' );
+            $st->execute();
+        } catch(PDOException $e) {
+            echo 'Greska: ' . $e->getMessage();
+        }   
+
+        $rezultat = $st->fetchAll( PDO::FETCH_ASSOC );
+        $values = [];
+        foreach($rezultat as $key => $value) {
+
+            $values[] = $value["$column"];
+
+        }
+        asort($values);
+        return $values;
+
+    }
+
 }
 
 ?>
