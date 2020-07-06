@@ -48,6 +48,6 @@ foreach($songs as $value) {
 }
 echo('</tbody></table>');
 
-require_once __DIR__ . '/home_footer.php';
+require_once __DIR__ . '/_footer.php';
 
 ?>

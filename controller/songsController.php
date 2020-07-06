@@ -9,14 +9,17 @@ class songsController {
     public function playlist() {
 
         $user = User::find( 'username', $_SESSION['korisnik'] );
-        //$playlista = Playlist::find( 'username', $user->username );
+        $popis = User::predlozeno();
 
-        if( $user->songs !== '0' ) {
+        if( !preg_match('/^[\t\s]*$/', $user->songs ) ) {
             $pjesme = explode(" ", $user->songs);
             $songs = [];
             $novo = [];
 
             foreach( $pjesme as $pjesma ) {
+                if( !preg_match( '/^[0-9]+$/', $pjesma ) ) {
+                    continue;
+                }
                 $song =  Song::find( 'id_song', $pjesma );
                 if( isset( $_POST['ukloni'] ) && $_POST['ukloni'] === $song->id_song ) {
                     continue;
@@ -26,8 +29,6 @@ class songsController {
             }
 
             $user->songs = implode(" ", $novo );
-            //print_r($user);
-
             $user->save();
 
         } else {
@@ -49,11 +50,6 @@ class songsController {
         }
         $naziv = $_GET['naziv'];
 
-        if( !isset( $_GET[ 'korisnik' ] ) ) {
-            sendJSONandExit( ['error' => 'Ne postoji $_GET[\'korisnik\']!' ] );
-        }
-        $korisnik = $_GET['korisnik'];
-
         if( !isset( $_GET[ 'artist' ] ) ) {
             sendJSONandExit( ['error' => 'Ne postoji $_GET[\'artist\']!' ] );
         }
@@ -71,15 +67,12 @@ class songsController {
         }
         
         $id = $song->id_song;
-        $user = User::find( 'username', $korisnik );
-        if( $user->songs === '0' ) {
-
+        $user = User::find( 'username', $_SESSION['korisnik'] );
+        if( preg_match('/^[\t\s]*$/', $user->songs ) ) {
             $pjesme = [];
-            
         } else {
-
             $pjesme = explode(" ", $user->songs);
-
+            
         }
         $sadrzano = false;
 
@@ -157,6 +150,7 @@ class songsController {
 
         $song = Song::find( 'id_song', $_GET['id'] );
         $komentari = Message::where( 'id_song', $_GET['id'] );
+        $popis = User::predlozeno();
         usort($komentari, "date_sort");
         $korisnik = $_SESSION['korisnik'];
 
@@ -182,6 +176,8 @@ class songsController {
         $godine = Song::column('year');
         $zemlje = Song::column('country');
 
+        $popis = User::predlozeno();
+
         require_once __DIR__ . '/../view/results.php';
 
     }
@@ -192,6 +188,8 @@ class songsController {
 
         $godine = Song::column('year');
         $zemlje = Song::column('country');
+
+        $popis = User::predlozeno();
 
         require_once __DIR__ . '/../view/countryView.php';
 

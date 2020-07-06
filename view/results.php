@@ -68,7 +68,7 @@ require_once __DIR__ . '/home_header.php';
 
 <?php
 
-require_once __DIR__ . '/home_footer.php';
+require_once __DIR__ . '/_footer.php';
 
 function ispao($pjesma, $song) {
 
