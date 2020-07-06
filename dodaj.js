@@ -18,6 +18,11 @@ function dodaj() {
         },
         success: function( data ) {
             console.log( data );
+            if( data === 'dodano' ) {
+                alert( 'Dodano u popis za reprodukciju!' );
+            } else {
+                alert( 'Već postoji u popisu za reprodukciju!')
+            }
         },
         error: function( xhr, status ) {
             console.log( status );

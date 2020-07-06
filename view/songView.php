@@ -3,6 +3,7 @@
 require_once __DIR__ . '/home_header.php';
 
 ?>
+ <script type="text/javascript" src="komentari.js"></script>
 <style>
 .themed-grid-col {
   padding-top: 15px;
@@ -51,24 +52,30 @@ require_once __DIR__ . '/home_header.php';
 
     <div width="100%" style="text-align: center;">
         <h2>Komentari</h2>
+        <div class="input-group" style="padding: 10px 15px; max-width: 100%;">
+                <input id="Komentiraj" type="text" class="form-control" placeholder="Komentiraj...">
+                <div class="input-group-btn">
+                <button id="gumbKomentar" value=<?php echo $song->id_song; ?> class="btn btn-default" type="submit">
+                    Dodaj!
+                </button>
+                </div>
+            </div>
     </div>
+    <br>
 
 
-    <div style="text-align: left; margin-left: 2%; margin-right: 2%;">
+    <div id="divKomentari" style="text-align: left; margin-left: 2%; margin-right: 2%;">
         <?php 
-            $action = "music.php?rt=messages/obradi";
-            echo '<form action=' . $action . ' method="POST">';
             foreach( $komentari as $komentar ) {
         ?>
             <div><?php echo '<pre style="background-color: rgb(255, 235, 204);"><b><i>' . $komentar->username . '</i></b> (' . $komentar->date . '):<br><pre style="display: inline-block; background-color: rgb(255, 204, 128); width: 90%;">' . $komentar->content . '</pre>';
                 echo '<span style="position: absolute; text-align: right; padding-right: 1%; padding-bottom: 1%; width: 10%;">';
-                echo '<button name="lajk" value=' . $komentar->id . '>&#128077;' . $komentar->thumbs_up . '</button><br>';
-                echo '<button name="dislajk" value=' . $komentar->id . '>&#128078;' . $komentar->thumbs_down . '</button>';
+                echo '<button class="lajkovi" title="thumbs_up" value=' . $komentar->id . '>&#128077; ' . $komentar->thumbs_up . '</button><br>';
+                echo '<button class="lajkovi" title="thumbs_down" value=' . $komentar->id . '>&#128078; ' . $komentar->thumbs_down . '</button>';
                 echo '</span></pre>';?></div>
             <?php
         }
         ?>
-        </form>
     </div>
 </div>
 
