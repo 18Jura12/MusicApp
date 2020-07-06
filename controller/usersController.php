@@ -41,6 +41,20 @@ class usersController {
 
         $pjesme = Song::where('year', 2019);
         $popis = User::predlozeno();
+        if(!isset($_GET['godina'])) {
+
+            $year = 2019;
+
+        } else {
+
+            $year = $_GET['godina'];
+
+        }
+        $pjesme = Song::where('year', $year);
+        $godine = Song::column('year');
+        $zemlje = Song::column('country');
+
+        //print_r($zemlje);
             
         require_once __DIR__ . '/../view/home.php';
 
