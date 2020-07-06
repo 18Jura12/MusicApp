@@ -149,6 +149,8 @@ abstract class Model {
             echo $promjena;
             echo 'Greska: ' . $e->getMessage();
         }
+
+        return $db->lastInsertId();
     }
 
     // Funkcija vraća polje koje sadrži sve objekte iz tablice $table kojima u stupcu $column piše vrijednost

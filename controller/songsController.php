@@ -54,7 +54,18 @@ class songsController {
         }
         $korisnik = $_GET['korisnik'];
 
-        $song = Song::find( 'name', $naziv );
+        if( !isset( $_GET[ 'artist' ] ) ) {
+            sendJSONandExit( ['error' => 'Ne postoji $_GET[\'artist\']!' ] );
+        }
+        $izvodjac = $_GET['artist'];
+
+        $songs = Song::where( 'name', $naziv );
+        $song = NULL;
+        foreach( $songs as $value ) { 
+            if( $value->artist === $izvodjac ) { // jedinstveno ime pjesme i izvođača, skupa
+                $song = $value;
+            }
+        }
         if( $song == NULL ) {
             sendJSONandExit( ['error' => 'Ne postoji pjesma!' ] );
         }
@@ -126,6 +137,7 @@ class songsController {
 
         $song = Song::find( 'id_song', $_GET['id'] );
         $komentari = Message::where( 'id_song', $_GET['id'] );
+        usort($komentari, "date_sort");
         $korisnik = $_SESSION['korisnik'];
 
         $godine = Song::column('year');
@@ -173,7 +185,10 @@ function sendJSONandExit( $message ) {
     echo json_encode( $message );
     flush();
     exit( 0 );
+}
 
+function date_sort($a, $b) {
+    return (-1) *( strtotime($a->date) - strtotime($b->date));
 }
 
 ?>

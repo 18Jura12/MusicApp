@@ -41,8 +41,11 @@ function trazi() {
             var lista = [];
             for( var i = 0; i < data.length; ++i ) {
                 var temp = "<option value='" + data[i] + "' />\n";
-                lista.push( temp );
-                
+                if( lista.length <= 10 ) {
+                    lista.push( temp );
+                } else {
+                    break;
+                } 
             }
             $('#datalist_pjesme').html( lista );
         },
