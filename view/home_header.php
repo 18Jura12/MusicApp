@@ -93,7 +93,7 @@
             foreach( $popis as $value ) { 
                 //print_r($value);
                 $link = $value->name . '<br>' . $value->flag . '<br>' . $value->artist;
-                echo '<td class="tdPredlozeni"><a href="#">' . $link . '</a></td>';
+                echo '<td class="tdPredlozeni"><a href="music.php?rt=songs/showSong&id=' . $value->id_song . '">' . $link . '</a></td>';
             }
             ?>
         </tr>

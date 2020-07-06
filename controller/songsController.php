@@ -156,6 +156,8 @@ class songsController {
         $godine = Song::column('year');
         $zemlje = Song::column('country');
 
+        $popis = User::predlozeno();
+
         require_once __DIR__ . '/../view/results.php';
 
     }
@@ -166,6 +168,8 @@ class songsController {
 
         $godine = Song::column('year');
         $zemlje = Song::column('country');
+
+        $popis = User::predlozeno();
 
         require_once __DIR__ . '/../view/countryView.php';
 
