@@ -2,7 +2,6 @@
 
 require_once __DIR__ . '/../model/user.class.php';
 require_once __DIR__ . '/../model/song.class.php';
-require_once __DIR__ . '/../model/playlist.class.php';
 require_once __DIR__ . '/../model/message.class.php';
 
 class songsController {
@@ -10,10 +9,10 @@ class songsController {
     public function playlist() {
 
         $user = User::find( 'username', $_SESSION['korisnik'] );
-        $playlista = Playlist::find( 'username', $user->username );
+        //$playlista = Playlist::find( 'username', $user->username );
 
-        if( $playlista !== NULL ) {
-            $pjesme = explode(" ", $playlista->songs);
+        if( $user->songs !== '0' ) {
+            $pjesme = explode(" ", $user->songs);
             $songs = [];
             $novo = [];
 
@@ -26,10 +25,10 @@ class songsController {
                 $novo[] = $song->id_song;
             }
 
-            $playlista->songs = implode(" ", $novo );
-            //print_r($playlista);
+            $user->songs = implode(" ", $novo );
+            //print_r($user);
 
-            $playlista->save();
+            $user->save();
 
         } else {
             $songs = [];
@@ -58,14 +57,16 @@ class songsController {
         }
         
         $id = $song->id_song;
-        $playlista = Playlist::find( 'username', $korisnik );
-        if( $playlista === NULL ) {
-            $playlista = Playlist::new( array( 0, $korisnik, 0, '' ) );
-            sendJSONandExit( $playlista->username);
-            $playlista->save();
+        $user = User::find( 'username', $korisnik );
+        if( $user->songs === '0' ) {
+
+            $pjesme = [];
             
+        } else {
+
+            $pjesme = explode(" ", $user->songs);
+
         }
-        $pjesme = explode(" ", $playlista->songs);
         $sadrzano = false;
 
         foreach( $pjesme as $pjesma ) {
@@ -77,8 +78,8 @@ class songsController {
 
         if( $sadrzano == false ) {
             $pjesme[] = $id;
-            $playlista->songs = implode(" ", $pjesme );
-            $playlista->save();
+            $user->songs = implode(" ", $pjesme );
+            $user->save();
             $message = 'dodano';
         }
 

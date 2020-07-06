@@ -3,8 +3,8 @@ $( window ).on( 'load', function() {
 } );
 
 function dodaj() {
-    var pjesma = $( this ).parent().parent().parent().find('td').eq(2).text();
-    //console.log( pjesma );
+    var pjesma = $( this ).parent().parent().parent().find('td').eq(1).text();
+    var izvodjac = $( this ).parent().parent().parent().find('td').eq(2).text();
     var user = $( 'div.align-middle').eq(0).attr('id');
     //console.log( user );
 
@@ -13,6 +13,7 @@ function dodaj() {
         url: 'music.php?rt=songs/add',
         data: {
             naziv: pjesma,
+            artist: izvodjac,
             korisnik: user
         },
         success: function( data ) {

@@ -1,0 +1,78 @@
+6,'Look Away','Darude ft. Sebastian Rejman','Finska',2019,'techno',0,'https://www.youtube.com/embed/VSPhIwOJfRs','🇫🇮',1,17,23,-1,-1,0
+7,'Zero Gravity','Kate Miller-Heidke','Australija',2019,'pop-opera',0,'https://www.youtube.com/embed/Eo5H62mCIsg','🇦🇺',1,1,261,9,284,0
+8,'Friend of a Friend','Lake Malawi','Češka',2019,'pop',0,'https://www.youtube.com/embed/NJxLKFZKhNs','🇨🇿',1,2,242,11,157,0
+9,'Hatrið Mun Sigra','Hatari','Island',2019,'rock',0,'https://www.youtube.com/embed/kTb69WkBbvs','🇮🇸',1,3,221,10,232,0
+11,'Mall','Eugent Bushpepa','Albanija','2018','rock',0,'https://www.youtube.com/embed/uyl1b1fVmdU','🇦🇱',1,8,162,11,184,0
+12,'Ktheju tokës','Jonida Maliqi','Albanija','2019','pop',0,'https://www.youtube.com/embed/-NAbYUoxIfg','🇦🇱',2,9,96,17,90,0
+13,'Qami','Sevak Khanagyan','Armenija',2018,'pop',0,'https://www.youtube.com/embed/CYlWiHjUK0c','🇦🇲',1,15,79,-1,-1,0
+14,'Walking Out','Srbuk','Armenija',2019,'pop',0,'https://www.youtube.com/embed/avBwSUYlTtI','🇦🇲',2,16,49,-1,-1,0
+15,'We Got Love','Jessica Mauboy','Australija',2018,'pop',0,'https://www.youtube.com/embed/2BBLTY6T2Ck','🇦🇺',2,4,212,20,99,0
+16,'Nobody But You','Cesár Sampson','Austrija',2018,'R&B',0,'https://www.youtube.com/embed/a8Yvzo1puoE','🇦🇹',1,4,231,3,342,0
+17,'Limits','PANDA','Austrija',2019,'pop',0,'https://www.youtube.com/embed/FVSZDF9O-bA','🇦🇹',2,17,21,-1,-1,0
+18,'X My Heart','Aisel','Azerbajdžan',2018,'pop',0,'https://www.youtube.com/embed/1CUwlpqUuvA','🇦🇿',1,11,94,-1,-1,0
+19,'Truth','Chingiz','Azerbajdžan',2019,'pop',0,'https://www.youtube.com/embed/D6vvuCiHwSs','🇦🇿',2,5,224,8,302,0
+20,'Forever','ALEKSEEV','Bjelorusija',2018,'pop',0,'https://www.youtube.com/embed/ywy_y24v_ao','🇧🇾',1,16,65,-1,-1,0
+21,'Like It','Zina Kupriyanovich (ZENA)','Bjelorusija',2019,'pop',0,'https://www.youtube.com/embed/C1Y9LBusHzA','🇧🇾',1,10,122,24,31,0
+22,'A Matter Of Time','Sennek','Belgija',2018,'pop',0,'https://www.youtube.com/embed/Z2cZE2gCfWg','🇧🇪',1,12,91,-1,-1,0
+24,'Bones','EQUINOX','Bugarska',2018,'pop',0,'https://www.youtube.com/embed/vC-1tdGDFQc','🇧🇬',1,7,177,14,166,0
+25,'Crazy','Franka Batelić','Hrvatska',2018,'pop',0,'https://www.youtube.com/embed/YxBLFbW5BqE','🇭🇷',1,17,63,-1,-1,0
+26,'The Dream','Roko','Hrvatska',2019,'pop',0,'https://www.youtube.com/embed/gXT5E8kUgfs','🇭🇷',2,14,64,-1,-1,0
+27,'Fuego','Eleni Foureira','Cipar',2018,'pop',0,'https://www.youtube.com/embed/vyDTbJ4wenY','🇨🇾',1,2,262,2,436,0
+28,'Replay','Tamta','Cipar',2019,'pop',0,'https://www.youtube.com/embed/wIpEI-NhRxg','🇨🇾',1,9,149,13,109,0
+29,'Lie To Me','Mikolas Josef','Češka',2018,'pop',0,'https://www.youtube.com/embed/w0ZUuQe0shk','🇨🇿',1,3,232,6,281,0
+31,'Higher Ground','Jonas Flodager Rasmussen','Danska',2018,'pop',0,'https://www.youtube.com/embed/c0kP074Mw0k','🇩🇰',2,5,204,9,226,0
+32,'Love Is Forever','Leonora','Danska',2019,'pop',0,'https://www.youtube.com/embed/mucmvTLHJQM','🇩🇰',2,10,94,12,120,0
+33,'La Forza','Elina Nechayeva','Estonija',2018,'pop-opera',0,'https://www.youtube.com/embed/ImawXdXIGd8','🇪🇪',1,5,201,8,245,0
+34,'Storm','Victor Crone','Estonija',2019,'pop',0,'https://www.youtube.com/embed/PppvSl3_W4E','🇪🇪',1,4,198,20,76,0
+35,'Monsters','Saara Aalto','Finska',2018,'pop',0,'https://www.youtube.com/embed/hdjiuCUUpPc','🇫🇮',1,10,108,25,46,0
+36,'Mercy','Madame Monsieur','Francuska',2018,'pop',0,'https://www.youtube.com/embed/vjLuTtUv0Ns','🇫🇷',-1,-1,-1,13,173,0
+37,'Roi','Bilal Hassani','Francuska',2019,'pop',0,'https://www.youtube.com/embed/AjZNbIQtWvw','🇫🇷',-1,-1,-1,15,105,0
+38,'For You','Ethno-Jazz Band Iriao','Gruzija',2018,'pop',0,'https://www.youtube.com/embed/FvVx5-mzmm0','🇬🇪',2,18,24,-1,-1,0
+39,'You Let Me Walk Alone','Michael Schulte','Njemačka',2018,'pop',0,'https://www.youtube.com/embed/N4YwSy4Q9k0','🇩🇪',-1,-1,-1,4,340,0
+40,'Sister','S!sters, Carlotta Truman, Laurita Kästel','Njemačka',2019,'pop',0,'https://www.youtube.com/embed/yFbSj_yPCPM','🇩🇪',-1,-1,-1,25,24,0
+41,'Oniro Mou','Yianna Terzi','Grčka',2018,'etnički pop',0,'https://www.youtube.com/embed/-XOR1DhtDC0','🇬🇷',1,14,81,-1,-1,0
+42,'Better Love','Katerine Duska','Grčka',2019,'pop',0,'https://www.youtube.com/embed/5pQV_-40m_U','🇬🇷',1,5,185,21,74,0
+43,'Viszlát Nyár','AWS','Mađarska',2018,'metal',0,'https://www.youtube.com/embed/p6e1TmYb33w','🇭🇺',2,10,111,21,93,0
+44,'Our Choice','Ari Ólafsson','Island',2018,'pop',0,'https://www.youtube.com/embed/RQytWeg9CzE','🇮🇸',1,19,15,-1,-1,0
+45,'Together','Ryan O\'Shaughnessy','Republika Irska',2018,'pop',0,'https://www.youtube.com/embed/QD1cQ2wZ1dk','🇮🇪',1,6,179,16,136,0
+46,'22','Sarah McTernan','Republika Irska',2019,'pop',0,'https://www.youtube.com/embed/lX7DT9GMHQM','🇮🇪',2,18,16,-1,-1,0
+47,'TOY','Netta Barzilai','Izrael',2018,'elektro-pop',0,'https://www.youtube.com/embed/84LBjXaeKk4','🇮🇱',1,1,283,1,529,0
+48,'Home','Kobi Marimi','Izrael',2019,'pop',0,'https://www.youtube.com/embed/uCdS42uCqP0','🇮🇱',-1,-1,-1,23,35,0
+49,'Non Mi Avete Fatto Niente','Ermal Meta, Fabrizio Moro','Italija',2018,'rap',0,'https://www.youtube.com/embed/81M-mp5t8uM','🇮🇹',-1,-1,-1,5,308,0
+50,'Soldi','Alessandro Mahmoud (Mahmood)','Italija',2019,'pop',0,'https://www.youtube.com/embed/M-aoyPa41Ic','🇮🇹',-1,-1,-1,2,472,0
+51,'Funny Girl','Laura Rizzotto','Latvija',2018,'pop',0,'https://www.youtube.com/embed/KGxANwWKz3U','🇱🇻',2,12,106,-1,-1,0
+52,'That Night','Carousel','ArcaLatvija',2019,'indie-pop',0,'https://www.youtube.com/embed/NCtKU3m3R-8','🇱🇻',2,15,50,-1,-1,0
+53,'When We\'re Old','Ieva Zasimauskaite','Litva',2018,'pop',0,'https://www.youtube.com/embed/pPDFhfU25go','🇱🇹',1,9,119,12,181,0
+54,'Run With The Lions','Jurij Veklenko','Litva',2019,'pop',0,'https://www.youtube.com/embed/5Nb3HMzsfZY','🇱🇹',2,11,93,-1,-1,0
+55,'Taboo','Christabelle','Malta',2018,'pop',0,'https://www.youtube.com/embed/d52ViPImdls','🇲🇹',2,13,101,-1,-1,0
+56,'Chameleon','Michela','Malta',2019,'pop',0,'https://www.youtube.com/embed/H-byNyainRA','🇲🇹',2,8,157,14,107,0
+57,'My Lucky Day','DoReDos','Moldavija',2018,'pop',0,'https://www.youtube.com/embed/5evrVL1rJPA','🇲🇩',2,3,235,10,209,0
+58,'Stay','Anna Odobescu','Moldavija',2019,'pop',0,'https://www.youtube.com/embed/-mo207V5Z2o','🇲🇩',2,12,85,-1,-1,0
+59,'Inje','Vanja Radovanović','Crna Gora',2018,'pop',0,'https://www.youtube.com/embed/XEi080yOuB8','🇲🇪',2,16,40,-1,-1,0
+60,'Outlaw In \'Em','Willem Bijkerk','Nizozemska',2018,'country',0,'https://www.youtube.com/embed/p7jHz5asMs8','🇳🇱',2,7,174,18,121,0
+61,'Arcade','Duncan Laurence','Nizozemska',2019,'pop',0,'https://www.youtube.com/embed/R3D-r4ogr7s','🇳🇱',2,1,280,1,498,0
+62,'Lost And Found','Eye Cue','Sjeverna Makedonija',2018,'pop/reggae',0,'https://www.youtube.com/embed/MV_cR_Qb2Cg','🇲🇰',1,18,24,-1,-1,0
+63,'Proud','Tamara Todevska','Sjeverna Makedonija',2019,'pop',0,'https://www.youtube.com/embed/0pAURAsum4A','🇲🇰',2,2,239,7,305,0
+64,'That\'s How You Write A Song','Alexander Rybak','Norveška',2018,'pop',0,'https://www.youtube.com/embed/N17BdRwOvBA','🇳🇴',2,1,266,15,144,0
+65,'Spirit in the Sky','KEiiNO, Tom Hugo, Fred Buljo, Alexandra Rotan','Norveška',2019,'pop',0,'https://www.youtube.com/embed/Ovt7YGHAj8I','🇳🇴',2,7,210,6,331,0
+66,'Light Me Up','Gromee, Lukas Meijer','Poljska',2018,'techno',0,'https://www.youtube.com/embed/oyoiCyP4Bkg','🇵🇱',2,14,81,-1,-1,0
+67,'O Jardim','Cláudia Pascoal','Portugal',2018,'pop',0,'https://www.youtube.com/embed/mHjGbADMcOI','🇵🇹',-1,-1,-1,26,39,0
+68,'Goodbye','The Humans','Rumunjska',2018,'rock',0,'https://www.youtube.com/embed/DGR4S3y7qcw','🇷🇴',2,11,107,-1,-1,0
+69,'On a Sunday','Ester Peony','Rumunjska',2019,'pop',0,'https://www.youtube.com/embed/cZC9o_Z90yo','🇷🇴',2,13,71,-1,-1,0
+70,'I Won\'t Break','Julia Samoylova','Rusija',2018,'pop',0,'https://www.youtube.com/embed/KujGHwyfMWM','🇷🇺',2,15,65,-1,-1,0
+71,'Scream','Sergey Lazarev','Rusija',2019,'pop',0,'https://www.youtube.com/embed/eNzlxEZ_JG4','🇷🇺',2,6,217,3,370,0
+72,'Who We Are','Jessika Muscat, Jenifer Brening','San Marino',2018,'pop',0,'https://www.youtube.com/embed/66D0pKVdA-4','🇸🇲',2,17,28,-1,-1,0
+73,'Say Na Na Na','Serhat','San Marino',2019,'pop',0,'https://www.youtube.com/embed/d_iEis_ZRoQ','🇸🇲',1,8,150,19,77,0
+74,'Nova Deca','Aleksandar Sanja Ilić, Balkanika','Srbija',2018,'etnički pop',0,'https://www.youtube.com/embed/WRQWQShbPHU','🇷🇸',2,9,117,19,113,0
+75,'Kruna','Nevena Božović','Srbija',2019,'pop',0,'https://www.youtube.com/embed/X0mdaeAyPvA','🇷🇸',1,7,156,18,89,0
+76,'Hvala, ne!','Lea Sirk','Slovenija',2018,'hip-hop',0,'https://www.youtube.com/embed/fBU0_hfST_o','🇸🇮',2,8,132,22,64,0
+77,'Sebi','Zala Kralj, Gašper Šantl','Slovenija',2019,'pop',0,'https://www.youtube.com/embed/vGtPNQ6g6Ng','🇸🇮',1,6,167,15,105,0
+78,'Tu Canción','Amaia Romero, Alfred García','Španjolska',2018,'pop',0,'https://www.youtube.com/embed/28oMEFgSoyk','🇪🇸',-1,-1,-1,23,61,0
+79,'La Venda','Miki Núnez','Španjolska',2019,'pop',0,'https://www.youtube.com/embed/lWXuohnM14U','🇪🇸',-1,-1,-1,22,54,0
+80,'Dance You Off','Benjamin Ingrosso','Švedska',2018,'pop',0,'https://www.youtube.com/embed/z101xtUBflU','🇸🇪',2,2,254,7,274,0
+81,'Too Late For Love','John Lundvik','Švedska',2019,'pop',0,'https://www.youtube.com/embed/oEdWkdVKIqQ','🇸🇪',2,3,238,5,334,0
+82,'Stones','ZiBBZ','Švicarska',2018,'rock',0,'https://www.youtube.com/embed/wJGTVsluHkw','🇨🇭',1,13,86,-1,-1,0
+83,'She Got Me','Luca Hänni','Švicarska',2019,'pop',0,'https://www.youtube.com/embed/8aUYzqAIdoM','🇨🇭',2,4,232,4,364,0
+84,'Under The Ladder','MELOVIN','Ukrajina',2018,'pop',0,'https://www.youtube.com/embed/lhOuMYtQ94M','🇺🇦',2,6,179,17,130,0
+23,'Storm','Susanna Marie','Ujedinjeno Kraljevstvo',2018,'pop',0,'https://www.youtube.com/embed/n0ydtXG-tqY','🇬🇧',-1,-1,-1,24,48,0
+30,'Bigger Than Us','Michael Rice','Ujedinjeno Kraljevstvo',2019,'pop',0,'https://www.youtube.com/embed/HV-eOhTS8Dw','🇬🇧',-1,-1,-1,26,11,0

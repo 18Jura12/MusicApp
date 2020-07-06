@@ -139,7 +139,7 @@ abstract class Model {
 
             $vrijednosti = implode( ", ", $vrijednosti );
             //print_r( $vrijednosti);
-            $promjena .= $vrijednosti . ' WHERE ' . $column . ' = ' . $value;
+            $promjena .= $vrijednosti . ' WHERE ' . $column . ' = ' . '"'.$value.'"';
         }
 
         try {

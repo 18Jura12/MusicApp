@@ -34,27 +34,29 @@ function create_table_users()
 {
 	$db = DB::getConnection();
 
-	if( has_table( 'project_users' ) )
-		exit( 'Tablica project_users vec postoji. Obrisite ju pa probajte ponovno.' );
+	if( has_table( 'musicUsers' ) )
+		exit( 'Tablica musicUsers vec postoji. Obrisite ju pa probajte ponovno.' );
 
 
 	try
 	{
 		$st = $db->prepare( 
-			'CREATE TABLE IF NOT EXISTS project_users (' .
+			'CREATE TABLE IF NOT EXISTS musicUsers (' .
 			'username varchar(10) NOT NULL PRIMARY KEY,' .
 			'email varchar(50) NOT NULL,' .
 			'country varchar(30) NOT NULL,' .
 			'password_hash varchar(255) NOT NULL,'.
+			'songs varchar(200) NOT NULL'.
+			'points varchar(50) NOT NULL'.
 			'registration_sequence varchar(20) NOT NULL,' .
 			'has_registered int)'
 		);
 
 		$st->execute();
 	}
-	catch( PDOException $e ) { exit( "PDO error [create project_users]: " . $e->getMessage() ); }
+	catch( PDOException $e ) { exit( "PDO error [create musicUsers]: " . $e->getMessage() ); }
 
-	echo "Napravio tablicu project_users.<br />";
+	echo "Napravio tablicu musicUsers.<br />";
 }
 
 
@@ -63,13 +65,13 @@ function create_table_songs()
 	'' .
 	$db = DB::getConnection();
 
-	if( has_table( 'project_songs' ) )
-		exit( 'Tablica project_songs vec postoji. Obrisite ju pa probajte ponovno.' );
+	if( has_table( 'musicSongs' ) )
+		exit( 'Tablica musicSongs vec postoji. Obrisite ju pa probajte ponovno.' );
 
 	try
 	{
 		$st = $db->prepare( 
-			'CREATE TABLE IF NOT EXISTS project_songs (' .
+			'CREATE TABLE IF NOT EXISTS musicSongs (' .
 			'id_song int NOT NULL PRIMARY KEY AUTO_INCREMENT,' .
 			'name varchar(50) NOT NULL)' .
 			'artist varchar(20) NOT NULL)' .
@@ -89,9 +91,9 @@ function create_table_songs()
 
 		$st->execute();
 	}
-	catch( PDOException $e ) { exit( "PDO error [create project_songs]: " . $e->getMessage() ); }
+	catch( PDOException $e ) { exit( "PDO error [create musicSongs]: " . $e->getMessage() ); }
 
-	echo "Napravio tablicu project_songs.<br />";
+	echo "Napravio tablicu musicSongs.<br />";
 }
 
 
@@ -99,13 +101,13 @@ function create_table_messages()
 {
 	$db = DB::getConnection();
 
-	if( has_table( 'project_messages' ) )
-		exit( 'Tablica project_messages vec postoji. Obrisite ju pa probajte ponovno.' );
+	if( has_table( 'musicMessages' ) )
+		exit( 'Tablica musicMessages vec postoji. Obrisite ju pa probajte ponovno.' );
 
 	try
 	{
 		$st = $db->prepare( 
-			'CREATE TABLE IF NOT EXISTS project_messages (' .
+			'CREATE TABLE IF NOT EXISTS musicMessages (' .
 			'id int NOT NULL PRIMARY KEY AUTO_INCREMENT,' .
 			'username varchar(10) NOT NULL' .
 			'id_song INT NOT NULL,' .
@@ -117,9 +119,9 @@ function create_table_messages()
 
 		$st->execute();
 	}
-	catch( PDOException $e ) { exit( "PDO error [create project_messages]: " . $e->getMessage() ); }
+	catch( PDOException $e ) { exit( "PDO error [create musicMessages]: " . $e->getMessage() ); }
 
-	echo "Napravio tablicu project_messages.<br />";
+	echo "Napravio tablicu musicMessages.<br />";
 }
 
 
@@ -134,9 +136,8 @@ function create_table_actions()
 	{
 		$st = $db->prepare( 
 			'CREATE TABLE IF NOT EXISTS project_actions (' .
-			'id int NOT NULL PRIMARY KEY AUTO_INCREMENT,' .
-			'username varchar(10) NOT NULL' .
-			'id_song INT NOT NULL,'
+			'username varchar(10) PRIMARY KEY NOT NULL' .
+			'id_song INT PRIMARY KEY NOT NULL,'
 		);
 
 		$st->execute();
@@ -145,31 +146,5 @@ function create_table_actions()
 
 	echo "Napravio tablicu project_actions.<br />";
 }
-
-
-function create_table_playlists()
-{
-	$db = DB::getConnection();
-
-	if( has_table( 'project_playlists' ) )
-		exit( 'Tablica project_playlists vec postoji. Obrisite ju pa probajte ponovno.' );
-
-	try
-	{
-		$st = $db->prepare( 
-			'CREATE TABLE IF NOT EXISTS project_playlists (' .
-			'id int NOT NULL PRIMARY KEY AUTO_INCREMENT,' .
-			'username varchar(10) NOT NULL' .
-			'songs_counter int' .
-			'songs varchar(3000) NOT NULL,'
-		);
-
-		$st->execute();
-	}
-	catch( PDOException $e ) { exit( "PDO error [create project_playlists]: " . $e->getMessage() ); }
-
-	echo "Napravio tablicu project_playlists.<br />";
-}
-
 
 ?> 
