@@ -9,6 +9,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/grid/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/radio/">
     <script type="text/javascript" src="search.js"></script>
 
     <title>🎶 MusicApp</title>
@@ -53,7 +54,22 @@
                 <!--Ako stignemo, jer sada kada sam malo razmislio o tome, dosta je komplicirano, ali imamo cijelu tablicu actions samo za to :)
                 Treba tu napraviti dodjelu bodova tako da se pravilno dodijele i onda spremiti to sve u MusicActions i onda kada čitaš u fan bodovima
                 poredak, to sve pozbrojiti... puno posla i puno prtljanja po stringovima baze, ali da se.-->
-                <li><a href="music.php?rt=songs/bodovi">Moji bodovi</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Moji bodovi
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu navbar-inverse">
+                    <!--Ovdje bih trebao dohvatiti godine, to možeš u funkciji početna dohvatiti pa ovdje ispisati u opcije.
+                    Link ide na stranicu sa pjesmama iz te godine, trebao bi na toj stranici biti gumb za poredak i gumb za 
+                    ukupne bodove fanova, što je onaj komplicirani dio koji sam oslovio kasnije.-->
+                        <?php
+                        foreach($godine as $godina) {
+
+                            echo '<li><a href="music.php?rt=songs/bodovi&godina='.$godina.'">'.$godina.'</a></li>';
+
+                        }
+                        ?>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="music.php?rt=users/logout"><span class="glyphicon glyphicon-log-out"></span> Odjava</a></li>

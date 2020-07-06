@@ -118,6 +118,26 @@ class songsController {
         sendJSONandExit($message);
     }
 
+    function year() {
+
+        if(!isset($_GET['godina'])) {
+
+            sendJSONandExit( ['error' => 'Ne postoji $_GET[\'godina\']!' ] );
+
+        }
+        $unos = $_GET['godina'];
+        $message = [];
+        $pjesme = Song::where('year', $unos);
+
+        foreach($pjesme as $key => $value) {
+
+            $message[] = array($value->flag, $value->name, $value->artist);
+
+        }
+        sendJSONandExit($message);
+        
+    }
+
     function prikazPjesme() {
         if( !isset( $_GET[ 'unos' ] ) ) {
             sendJSONandExit( ['error' => 'Ne postoji $_GET[\'unos\']!' ] );
@@ -174,6 +194,17 @@ class songsController {
         $zemlje = Song::column('country');
 
         require_once __DIR__ . '/../view/countryView.php';
+
+    }
+
+    public function bodovi() {
+
+        $godine = Song::where('year',$_GET['godina']);
+
+        $godine = Song::column('year');
+        $zemlje = Song::column('country');
+
+        require_once __DIR__ . '/../view/bodovi.php';
 
     }
 }
