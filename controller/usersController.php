@@ -34,13 +34,13 @@ class usersController {
         } else {
             $_SESSION['korisnik'] = $_POST['username'];
             $this->pocetna();
-
         }
     }
 
     public function pocetna() {
 
         $pjesme = Song::where('year', 2019);
+        $popis = User::predlozeno();
             
         require_once __DIR__ . '/../view/home.php';
 

@@ -216,6 +216,72 @@ abstract class Model {
 
         return $niz;
     }
+
+    public function predlozeno() {
+
+        $user = User::find( 'username', $_SESSION['korisnik'] );
+        $popis = [];
+
+        if( !preg_match('/^[\t\s]*$/', $user->songs ) ) { //imamo nesto u playlisti
+
+            $popis = explode( " ", $user->songs );
+            $zanrovi = [];
+
+            foreach( $popis as $idPjesme ) {
+                if( !preg_match( '/^[0-9]+$/', $idPjesme ) ) {
+                    continue;
+                }
+
+                $genre = Song::find( 'id_song', $idPjesme )->genre;
+                if( !array_key_exists( $genre, $zanrovi ) ) {
+                    $zanrovi[$genre] = 1;
+                } else {
+                    $zanrovi[$genre] += 1;
+                }
+            }
+
+            $zanr =array_search( max( $zanrovi ), $zanrovi );
+            $popis = [];
+            $popisBaza = Song::where( 'genre', $zanr );
+
+            if( count( $popisBaza ) < 3 ) {
+                $br = 0;
+                foreach( $popisBaza as $value ) {
+                    $popis[] = $value;
+                    $br += 1;
+                }
+                $popisBaza = Song::where( 'genre', 'pop' );
+                $temp = array_rand( $popisBaza, 3-$br );
+                //print_r($temp);
+                if( $br === 2 ) {
+                    $pjesma = $popisBaza[$value];
+                } else {
+                    foreach( $temp as $value ) {
+                        $pjesma = $popisBaza[$value];
+                        $popis[] = $pjesma;
+                    }
+                }            
+            } else {
+                $temp = array_rand( $popisBaza, 3 );
+                foreach( $temp as $value ) {
+                    $pjesma = $popisBaza[$value];
+                    $popis[] = $pjesma;
+                }
+            }
+        } else { // nemamo nista u playlisti
+            $popisBaza = Song::where( 'genre', 'pop' );
+            $temp = array_rand( $popisBaza, 3 );
+            foreach( $temp as $value ) {
+                $pjesma = $popisBaza[$value];
+                $popis[] = $pjesma;
+            }
+        }      
+        
+        //print_r($popis);
+        //print_r( $zanr );
+
+        return $popis;
+    }
 }
 
 ?>

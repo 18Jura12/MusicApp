@@ -10,6 +10,8 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/grid/">
     <script type="text/javascript" src="search.js"></script>
+    <link href="css/footer.css" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sticky-footer/">
 
     <title>🎶 MusicApp</title>
 
@@ -73,3 +75,21 @@
     </style>
 </head>
 <body>
+
+<div class="zaglavlje">
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 25%; padding: 1% 2%;">Predložene pjesme: </td>
+            <?php 
+            //print_r($popis);
+            foreach( $popis as $value ) { 
+                //print_r($value);
+                $link = $value->name . '<br>' . $value->flag . '<br>' . $value->artist;
+                echo '<td class="tdPredlozeni"><a href="#">' . $link . '</a></td>';
+            }
+            ?>
+        </tr>
+    </table>
+</div>
+<br>
+<br>

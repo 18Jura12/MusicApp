@@ -1,0 +1,14 @@
+.tdPredlozeni {
+    width: 25%;
+    font-size: 110%;
+    text-align: center;
+    padding: 1% 2%;
+}
+
+.zaglavlje {
+    width: 100%;
+    background-color: rgb(230, 247, 255);
+    font-style: oblique;
+    border: 1px solid black;
+    border-radius: 10px;
+}
