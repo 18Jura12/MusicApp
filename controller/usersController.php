@@ -3,6 +3,7 @@
 
 require_once __DIR__ . '/../model/user.class.php';
 require_once __DIR__ . '/../model/song.class.php';
+require_once __DIR__ . '/../model/points.class.php';
 
 class usersController {
 
