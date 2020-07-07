@@ -263,8 +263,10 @@ abstract class Model {
                 $popisBaza = Song::where( 'genre', 'pop' ); // nadopunimo preostale pjesme sa pop pjesmama
                 $temp = array_rand( $popisBaza, 3-$br );
                 //print_r($temp);
+
                 if( $br === 2 ) {
-                    $pjesma = $popisBaza[$value];
+                    $pjesma = $popisBaza[$temp];
+                    $popis[] = $pjesma;
                 } else {
                     foreach( $temp as $value ) {
                         $pjesma = $popisBaza[$value];
