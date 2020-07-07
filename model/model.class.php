@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../app/database/db.class.php';
 
+//apstraktna klasa koju naslijeđuju sve ostale klase koje predstavljaju elemente tablica iz baza
 abstract class Model {
     protected static $table = null;
     protected static $attributes = [];
@@ -57,6 +58,7 @@ abstract class Model {
         return $temp;
     }
 
+    //funkcija radi novi objekt sa danim parametrima koji je tipa $this tj. tipa klase od čije strane je pozvana funkcija.
     public static function new ( $values ) {
         $klasa = get_called_class();
 
@@ -217,6 +219,7 @@ abstract class Model {
         return $niz;
     }
 
+    //OVO TREBA: INES
     public function predlozeno() {
 
         $user = User::find( 'username', $_SESSION['korisnik'] );
@@ -282,6 +285,8 @@ abstract class Model {
 
         return $popis;
     }
+
+    //funkcija vraća sve jedinstvana vrijednosti stupca $column
     public static function column($column) {
 
         $db = DB::getConnection();

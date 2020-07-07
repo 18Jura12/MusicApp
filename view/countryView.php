@@ -1,3 +1,6 @@
+<!-- 
+    Ovaj html prikazuje tablicu sa svim pjesmama koje su se natjecale za zadanu zemlju.
+-->
 <?php
 
 require_once __DIR__ . '/home_header.php';
@@ -13,6 +16,7 @@ require_once __DIR__ . '/home_header.php';
     }
 </style>
 
+<!-- Bootstrap-ov element koji smo koristili za naslov prikaza. U njemu se nalazi zastava i ime zadane zemlje. -->
 <section class="jumbotron text-center">
     <div class="container">
       <h1><?php echo $songs[0]->flag; ?></h1>
@@ -21,6 +25,8 @@ require_once __DIR__ . '/home_header.php';
 </section>
 
 <script type="text/javascript" src="dodaj.js"></script>
+
+<!-- Bootstrap-ova tablica koja prikazuje popis gore opisanih pjesama. Također sadrži i dodatne gumbe specifične za svaku pjesmu, za daljnje navigiranje po stranici -->
 <table class="table">
 <thead class="thead-dark">
     <tr>

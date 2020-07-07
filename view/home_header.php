@@ -28,7 +28,7 @@
                         <?php
                         foreach($godine as $godina) {
 
-                            echo '<li><a href="music.php?rt=users/pocetna&godina='.$godina.'" style="color:white;">'.$godina.'</a></li>';
+                            echo '<li><a href="music.php?rt=users/pocetna&godina='.$godina.'" style="color:white;" class="drop">'.$godina.'</a></li>';
 
                         }
                         ?>
@@ -41,7 +41,7 @@
                         <?php
                         foreach($zemlje as $zemlja) {
 
-                            echo '<li><a href="music.php?rt=songs/zemlja&zemlja='.$zemlja.'" style="color:white;">'.$zemlja.'</a></li>';
+                            echo '<li><a href="music.php?rt=songs/zemlja&zemlja='.$zemlja.'" style="color:white;" class="drop">'.$zemlja.'</a></li>';
 
                         }
                         ?>
@@ -55,11 +55,11 @@
                         <?php
                         foreach($godine as $godina) {
 
-                            echo '<li><a href="music.php?rt=songs/bodovi&godina='.$godina.'" style="color:white;">'.$godina.'</a></li>';
+                            echo '<li><a href="music.php?rt=songs/bodovi&godina='.$godina.'" style="color:white;" class="drop">'.$godina.'</a></li>';
 
                         }
                         ?>
-                        <li><a href="music.php?rt=songs/poredak&godina=2019">Poredak</a></li>
+                        <li><a href="music.php?rt=songs/poredak&godina=2019" style="color:white;" class="drop">Poredak</a></li>
                     </ul>
                 </li>
             </ul>

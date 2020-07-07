@@ -66,7 +66,7 @@ a.ikone:hover {
     <!--Ova treba dodati pjesmu u playlistu DODANO --> 
     <a title="Dodaj u popis za reprodukciju" value=<?php echo $song->id_song; ?>  class="dodajPjesmu ikone"><span class="glyphicon glyphicon-plus" style=" vertical-align: middle;"></span></a>&emsp;
     <!--Ova otvara rezultate finala i polufinala te godine u kojoj je ta pjesma sudjelovala, može i podebljati tu pjesmu u tablicama :)-->
-    <a class="ikone" title="Pogledaj plasman"href="music.php?rt=songs/plasman&id=<?php echo $value->id_song; ?>"><span class="glyphicon glyphicon-list" style=" vertical-align: middle;"></span></a>
+    <a class="ikone" title="Pogledaj plasman"href="music.php?rt=songs/plasman&id=<?php echo $song->id_song; ?>"><span class="glyphicon glyphicon-list" style=" vertical-align: middle;"></span></a>
     </div>
 
     <br>

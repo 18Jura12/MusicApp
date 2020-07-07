@@ -6,7 +6,7 @@ require_once __DIR__ . '/home_header.php';
 <script type="text/javascript" src="bodovi.js"></script>
 <?php
 echo '<div class="row">';
-echo '<div class="col">';
+echo '<div class="col-ml-6">';
 $j = 1;
 $k = 0;
 for($i=0; $i<sizeof($pjesme); $i++) {
@@ -17,7 +17,7 @@ for($i=0; $i<sizeof($pjesme); $i++) {
             if($j<12)  {
 
                 if($j > 8) $j++;
-                echo '<div class="col-md-2 offset-md-2"><div style="padding:10%;"><input type="radio" name="bodovi" class="'.$k.'">'.$j.'</div></div>';
+                echo '<div class="col-md-2 offset-md-2"><div style="padding:10%; float:right;"><input type="radio" name="bodovi" class="'.$k.'">'.$j.'</div></div>';
                 $j++; $k++;
 
             }

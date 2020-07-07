@@ -1,3 +1,7 @@
+
+<!-- 
+    Ovaj Controller predstavlja upravljanje podatcima iz tablice musicPoints.
+ -->
 <?php
 
 require_once __DIR__ . '/../model/points.class.php';
@@ -5,6 +9,7 @@ require_once __DIR__ . '/../model/song.class.php';
 
 class PointsController {
 
+    //Ova funkcija sprema dati string s bodovima u tablicu pod zadani username, za zadanu godinu.
     public function save() {
 
         $row = Points::find('username', $_GET['username']);
@@ -16,6 +21,7 @@ class PointsController {
 
         $novi = $_GET['data'];
         
+        //Ovdje uklanjamo bodove, ukoliko prepisujemo već postojeće bodovanje.
         if(intval($stari[0]) !== 0) {
 
             $j = 1;
@@ -33,6 +39,7 @@ class PointsController {
 
         }
 
+        //Ovdje ažuriramo bodove korisnika za svaku pjesmu (onaj atribut fan_points, opisan u klasi pjesme(song.class.php)).
         $j = 1;
         for($i=0; $i<sizeof($novi); $i++) {
 
@@ -48,15 +55,6 @@ class PointsController {
 
     } 
 
-}
-
-function sendJSONandExit( $message ) {
-    // Kao izlaz skripte pošalji $message u JSON formatu i
-    // prekini izvođenje.
-    header( 'Content-type:application/json;charset=utf-8' );
-    echo json_encode( $message );
-    flush();
-    exit( 0 );
 }
 
 ?>

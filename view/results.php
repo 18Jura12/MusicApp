@@ -1,9 +1,17 @@
+<!-- Ovaj html prikazuje tri tablice koje reprezentiraju ishod natjecanja zadane godine te istiću zadanu Zemlju i njezin plasman.
+     Tablice su raspoređene pomoću Bootstrap-ovog grida.
+ -->
 <?php
 
 require_once __DIR__ . '/home_header.php';
 
 ?>
 
+<!-- 
+    Sve su tri tablice svaka u svojem stupcu jednog reda mreže, uz jedan dodatni stupac koji glumi padding prve tablice.
+    Prva tablica predstavlja prvo polufinale, druga drugo, a treća finale. U polufinalima su sivom pozadinom retka označene one zemlje koje nisu prošle u finale.
+    U tablici finala je zlatnom bojom pozadine označen pobjednik.
+ -->
 <div class="row d-flex justify-content-around">
     <div class="col-md-1"></div>
     <div class="col-md-3">
@@ -70,6 +78,7 @@ require_once __DIR__ . '/home_header.php';
 
 require_once __DIR__ . '/_footer.php';
 
+//pomoćna funkcija koja provjerava je li pjesma s trenutnim id-em ispala iz polufinala i je li ona zadana zemlja koju treba istaknuti.
 function ispao($pjesma, $song) {
 
     $naredba = '';
@@ -88,6 +97,7 @@ function ispao($pjesma, $song) {
 
 }
 
+//pomoćna funkcija koja provjerava je li pjesma s trenutnim id-em pobjedila u finalu i je li ona zadan zemlja koju treba istaknuti.
 function prvi($pjesma, $song) {
 
     $naredba = '';
