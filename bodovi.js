@@ -1,46 +1,57 @@
 $( window ).on( 'load', function() {
-    $( 'input').on( 'click', forma );
+    let odabir = Array(0,0,0,0,0,0,0,0,0,0);
+    $( 'button').on( 'click', function() {
 
-} );
+        if($(this).attr('id') == 'submit') {
 
-function forma() {
+            godina = $(this).attr('label');
+            username = $(this).attr('value');
 
-    godina = $(this).attr('id');
-    console.log(godina);
+            $.ajax({
 
-    $.ajax({
+                url: 'music.php?rt=points/save',
+                data: {
 
-        type: 'GET',
-        url: 'music.php?rt=songs/year',
-        data: {
-            godina: godina,
-        },
-        success: function( data ) {
-            
-            //console.log(data);
-            $('body').append($('<hr>'))
-                     .append($('<div class="row" id="forma">').append($('<div class="col-md-1">')).append($('<div class="col-md-5" id="odabir">')));
-            for(var i=1; i <= 10; i++) {
+                    data: odabir,
+                    year: godina,
+                    username: username
 
-                var j = i;
-                if(i == 9) j=10;
-                if(i == 10) j=12;
-                $('#odabir').append($('<div class="row-md-1 custom-control custom-radio">').append($('<input type="radio" class="bod" id="'+j+'" name="inlineDefaultRadiosExample"><label class="custom-control-label" for="'+j+'" style=" display: inline; vertical-align: center;">'+j+'</label>')))
+                },
+                success: function() {
+
+                    alert('Bodovi uspješno pohranjeni!');
+
+                },
+                error: function( xhr, status ) {
+                    console.log( status );
+                }
+
+            });
+
+        } else if ($('input[type="radio"]:checked').attr('class') !== undefined) {
+
+            var points = $('input[type="radio"]:checked').attr('class');
+            var song = $(this).attr('id');
+    
+            if(odabir[points] != 0) {
+
+                $('#'+odabir[points].toString()).attr('disabled', false);
 
             }
-            $('#forma').append($('<div class="col-md-2" id="gumbi">'));
-            for(var i=0; i < data.length; i++) {
+            odabir[points] = song;
+            $('#'+song.toString()).attr('disabled', true);
+            var html = $('input.'+points.toString()).parent().html()
+            html = html.substring(0,html.indexOf(">")+1);
+            //console.log(html);
+            $('input.'+points.toString()).parent().html(html+' '+$('#'+song.toString()).children(0).html());
+    
+        }
+        if(odabir.indexOf(0) == -1) {
 
-                console.log(data[i]);
-                 $('#gumbi').append($('<button style="width=25%; height=10%;"><div>'+data[i][0]+'</div><div>'+data[i][1]+'<br><div style="font-size:10px; color:gray;">'+data[i][2]+'</div></div>'));
+            $('#submit').attr('disabled', false);
 
-             }
-
-        },
-        error: function( xhr, status ) {
-            console.log( status );
         }
 
     });
 
-}
+} );

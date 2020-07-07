@@ -186,7 +186,7 @@ class songsController {
 
     public function bodovi() {
 
-        $godine = Song::where('year',$_GET['godina']);
+        $pjesme = Song::where('year',$_GET['godina']);
 
         $godine = Song::column('year');
         $zemlje = Song::column('country');

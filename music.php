@@ -2,7 +2,10 @@
 
 if( !isset( $_SESSION ) ) session_start();
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b90557bb12a0b7966f4f4303c1506bd7cd533621
 require_once __DIR__ . '/app/database/db.class.php';
 
 if( !isset( $_GET['rt'] ) && !isset( $_SESSION['korisnik'] ) ) { //nije nitko ulogiran
@@ -18,8 +21,8 @@ if( !isset( $_GET['rt'] ) && !isset( $_SESSION['korisnik'] ) ) { //nije nitko ul
     $action = 'verifyRegister';
 }
 else if( !isset( $_GET['rt'] ) ) {
-    $controller = 'channels';
-    $action = 'index';
+    $controller = 'users';
+    $action = 'pocetna';
 }
 
 else
@@ -29,7 +32,7 @@ else
     if( isset( $parts[0] ) && preg_match( '/^[A-Za-z0-9]+$/', $parts[0] ) )
         $controller = $parts[0];
     else 
-        $controller = 'channels';
+        $controller = 'users';
 
     if( isset( $parts[1] ) && preg_match( '/^[A-Za-z0-9]+$/', $parts[1] ) ) {
         $action = $parts[1];
@@ -40,7 +43,7 @@ else
         }
     }
     else 
-        $action = 'index';
+        $action = 'pocetna';
 }
 
 $controllerName = $controller . 'Controller';

@@ -9,7 +9,6 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/grid/">
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/radio/">
     <script type="text/javascript" src="search.js"></script>
     <link href="css/footer.css" rel="stylesheet">
     <link href="css/poredak.css" rel="stylesheet">
@@ -26,13 +25,10 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Godina
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu navbar-inverse">
-                    <!--Ovdje bih trebao dohvatiti godine, to možeš u funkciji početna dohvatiti pa ovdje ispisati u opcije.
-                    Link ide na stranicu sa pjesmama iz te godine, trebao bi na toj stranici biti gumb za poredak i gumb za 
-                    ukupne bodove fanova, što je onaj komplicirani dio koji sam oslovio kasnije.-->
                         <?php
                         foreach($godine as $godina) {
 
-                            echo '<li><a href="music.php?rt=users/pocetna&godina='.$godina.'">'.$godina.'</a></li>';
+                            echo '<li><a href="music.php?rt=users/pocetna&godina='.$godina.'" style="color:white;">'.$godina.'</a></li>';
 
                         }
                         ?>
@@ -41,32 +37,25 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Zemlja
                     <span class="caret"></span></a>
-                    <ul class="dropdown-menu navbar-inverse">
-                    <!--Ovdje bih trebao dohvatiti zemlje, to možeš u funkciji početna dohvatiti pa ovdje ispisati u opcije, idealno sa zastavama-->
+                    <ul class="dropdown-menu navbar-inverse" style="color: white;">
                         <?php
                         foreach($zemlje as $zemlja) {
 
-                            echo '<li><a href="music.php?rt=songs/zemlja&zemlja='.$zemlja.'">'.$zemlja.'</a></li>';
+                            echo '<li><a href="music.php?rt=songs/zemlja&zemlja='.$zemlja.'" style="color:white;">'.$zemlja.'</a></li>';
 
                         }
                         ?>
                     </ul>
                 </li>
                 <li><a href="music.php?rt=songs/playlist">Moje pjesme</a></li>
-                <!--Ako stignemo, jer sada kada sam malo razmislio o tome, dosta je komplicirano, ali imamo cijelu tablicu actions samo za to :)
-                Treba tu napraviti dodjelu bodova tako da se pravilno dodijele i onda spremiti to sve u MusicActions i onda kada čitaš u fan bodovima
-                poredak, to sve pozbrojiti... puno posla i puno prtljanja po stringovima baze, ali da se.-->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Moji bodovi
                     <span class="caret"></span></a>
-                    <ul class="dropdown-menu navbar-inverse">
-                    <!--Ovdje bih trebao dohvatiti godine, to možeš u funkciji početna dohvatiti pa ovdje ispisati u opcije.
-                    Link ide na stranicu sa pjesmama iz te godine, trebao bi na toj stranici biti gumb za poredak i gumb za 
-                    ukupne bodove fanova, što je onaj komplicirani dio koji sam oslovio kasnije.-->
+                    <ul class="dropdown-menu navbar-inverse" style="color: white;">
                         <?php
                         foreach($godine as $godina) {
 
-                            echo '<li><a href="music.php?rt=songs/bodovi&godina='.$godina.'">'.$godina.'</a></li>';
+                            echo '<li><a href="music.php?rt=songs/bodovi&godina='.$godina.'" style="color:white;">'.$godina.'</a></li>';
 
                         }
                         ?>
@@ -82,8 +71,6 @@
                 <div style="color: white; margin-right: 15px; margin-left: 15px; width: 100%;"><strong><?php echo 'Bok, ' . $_SESSION['korisnik'] . '!'; ?>
                     </strong></div>
             </div>
-
-            <!--Ovdje se možeš igrati sa tim pretragama po izvođačima i pjesmama. Fja nije implementirana SAMO PO PJESMAMA-->
             
             <div class="input-group nav navbar-nav navbar-right" style="padding: 10px 15px; margin-right: -15px; margin-left: -15px; max-width: 320px;">
                 <input list="datalist_pjesme" id="searchBar" type="text" class="form-control" placeholder="Pretraga">
