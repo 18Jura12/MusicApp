@@ -1,0 +1,45 @@
+.naslov {
+    background-color: orange;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 150%;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.izbor {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.forma {
+    font-size: 150%;
+}
+
+.sadrzaj {
+    border-radius: 5px;
+    font-size: 150%;
+    background-color: rgb(230, 230, 230);
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.ispis {
+    border-bottom: 1px solid black;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+
+.p-evi {
+    display: inline;
+    font-size: 80%;
+}
+
+.points {
+    float: right;
+    
+    height: 80%;
+}

@@ -24,7 +24,7 @@ foreach($pjesme as $value) {
         <div id=<?php echo $_SESSION['korisnik']; ?> class="align-middle" style="font-size: 30px; ">
             <!--Ništa od funkcija na linkovima nije implementirano :D-->
             <!--Ova treba dodati pjesmu u playlistu DODANO --> 
-            <a title="Dodaj u popis za reprodukciju" class="dodajPjesmu"><span class="glyphicon glyphicon-plus" style=" vertical-align: middle;"></span></a>&emsp;
+            <a value=<?php echo $value->id_song; ?> title="Dodaj u popis za reprodukciju" class="dodajPjesmu"><span class="glyphicon glyphicon-plus" style=" vertical-align: middle;"></span></a>&emsp;
             <!--Ova treba za dati id pjesme otvoriti komentare i lajkove za tu pjesmu unutar nekog prozorčića-->
             <a title="Otvori pjesmu" href="music.php?rt=songs/showSong&id=<?php echo $value->id_song; ?>"><span class="glyphicon glyphicon-facetime-video" style=" vertical-align: middle;"></span></a>&emsp;
             <!--Ova otvara rezultate finala i polufinala te godine u kojoj je ta pjesma sudjelovala, može i podebljati tu pjesmu u tablicama :)-->

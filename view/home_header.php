@@ -11,6 +11,10 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/grid/">
     <script type="text/javascript" src="search.js"></script>
     <link href="css/footer.css" rel="stylesheet">
+<<<<<<< HEAD
+=======
+    <link href="css/poredak.css" rel="stylesheet">
+>>>>>>> 8a81e313a6cb98864c0c0323ef91c06fb29fd830
 
     <title>🎶 MusicApp</title>
 
@@ -58,6 +62,7 @@
 
                         }
                         ?>
+                        <li><a href="music.php?rt=songs/poredak&godina=2019">Poredak</a></li>
                     </ul>
                 </li>
             </ul>
@@ -65,7 +70,18 @@
                 <li><a href="music.php?rt=users/logout"><span class="glyphicon glyphicon-log-out"></span> Odjava</a></li>
             </ul>
 
+<<<<<<< HEAD
             <div class="input-group" style="padding: 10px 15px; margin-right: -15px; margin-left: -15px; max-width: 100%;">
+=======
+            <div class="input-group nav navbar-nav navbar-right" style="padding: 15px 15px; margin-right: -15px; margin-left: -15px; max-width: 120px;">
+                <div style="color: white; margin-right: 15px; margin-left: 15px; width: 150%;"><strong><?php echo 'Bok, ' . $_SESSION['korisnik'] . '!'; ?>
+                    </strong></div>
+            </div>
+
+            <!--Ovdje se možeš igrati sa tim pretragama po izvođačima i pjesmama. Fja nije implementirana SAMO PO PJESMAMA-->
+            
+            <div class="input-group nav navbar-nav navbar-right" style="padding: 10px 15px; margin-right: -15px; margin-left: -15px; max-width: 320px;">
+>>>>>>> 8a81e313a6cb98864c0c0323ef91c06fb29fd830
                 <input list="datalist_pjesme" id="searchBar" type="text" class="form-control" placeholder="Pretraga">
                 <datalist id="datalist_pjesme"></datalist>
                 <div class="input-group-btn">

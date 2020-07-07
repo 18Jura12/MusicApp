@@ -2,10 +2,7 @@
 
 require_once __DIR__ . '/home_header.php';
 
-#include __DIR__ . '/../songList.js';
-
 ?> 
-<script type="text/javascript" src="songList.js"></script>
 <main role="main">
 
   <section class="jumbotron text-center">

@@ -3,16 +3,14 @@ $( window ).on( 'load', function() {
 } );
 
 function dodaj() {
-    var pjesma = $( this ).parent().parent().parent().find('td').eq(1).text();
-    var izvodjac = $( this ).parent().parent().parent().find('td').eq(2).text();
-    //console.log( user );
+    var pjesma = $( this ).attr( 'value' );
+    console.log( $( this ).attr( 'value' ) );
 
     $.ajax( {
         type: 'GET',
         url: 'music.php?rt=songs/add',
         data: {
-            naziv: pjesma,
-            artist: izvodjac,
+            id: pjesma
         },
         success: function( data ) {
             console.log( data );

@@ -83,7 +83,7 @@ class usersController {
                     $reg_seq .= chr( rand(0, 25) + ord( 'a' ) ); // Zalijepi slučajno odabrano slovo
                 }
 
-                $newUser = User::new( array( $_POST['usernameReg'], $_POST['mail'], $_POST['country'], password_hash( $_POST['passwordReg'], PASSWORD_DEFAULT ), $reg_seq, 0 ) );
+                $newUser = User::new( array( $_POST['usernameReg'], $_POST['mail'], $_POST['country'], password_hash( $_POST['passwordReg'], PASSWORD_DEFAULT ), '', $reg_seq, 0 ) );
 
                 //print_r( $newUser );
    
@@ -103,10 +103,8 @@ class usersController {
                 $isOK = mail($to, $subject, $messageMail, $headers);
    
 		        if( !$isOK ) {
-                    //$message = 'Ne mogu poslati mail.' . $to . ' ' . $subject . ' ' . $messageMail;
-                    //$message = error_get_last()['message'];
-                    var_dump(error_get_last()['message']);
-                    //require_once __DIR__ . '/../view/register.php';
+                    $message = 'Ne mogu poslati mail.';
+                    require_once __DIR__ . '/../view/register.php';
                 } else {
                     require_once __DIR__ . '/../view/registerSuccessful.php';
                 }
@@ -115,7 +113,18 @@ class usersController {
     }
 
     public function sanducic() {
-        echo 'sanducic';
+        if( !isset( $_GET['niz'] ) || !preg_match( '/^[a-z]{20}$/', $_GET['niz'] ) ) {
+            $message = 'Probajte ponovo kliknuti na link u mailu.';
+            require_once __DIR__ . '/../view/login.php';
+        }
+
+        //Pretpostavljamo da postoji samo jedan takav niz
+        $user = User::find( 'registration_sequence', $_GET['niz'] );
+
+        $user->has_registered = 1;
+        $user->save();
+
+        require_once __DIR__ . '/../view/mailSuccessful.php';
     }
 
     public function logout() {
