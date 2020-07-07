@@ -19,8 +19,8 @@ if( !isset( $_GET['rt'] ) && !isset( $_SESSION['korisnik'] ) ) { //nije nitko ul
     $action = 'verifyRegister';
 }
 else if( !isset( $_GET['rt'] ) ) {
-    $controller = 'channels';
-    $action = 'index';
+    $controller = 'users';
+    $action = 'pocetna';
 }
 
 else
@@ -31,7 +31,7 @@ else
     if( isset( $parts[0] ) && preg_match( '/^[A-Za-z0-9]+$/', $parts[0] ) )
         $controller = $parts[0];
     else 
-        $controller = 'channels';
+        $controller = 'users';
 
     if( isset( $parts[1] ) && preg_match( '/^[A-Za-z0-9]+$/', $parts[1] ) ) {
         $action = $parts[1];
@@ -42,7 +42,7 @@ else
         }
     }
     else 
-        $action = 'index';
+        $action = 'pocetna';
 }
 
 $controllerName = $controller . 'Controller';
