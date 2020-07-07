@@ -118,6 +118,9 @@ class usersController {
    
                 $newUser->save(); //sprema ga u bazu
 
+                $newPoints = Points::new(array($_POST['usernameReg'], '0', '0')); //Izradi novi red za unos bodova korisnika.
+                $newPoints->save(); //Sprema red u bazu.
+
                 // Sad mu još pošalji mail
                 $to       = $_POST['mail'];
                 $subject  = 'Registracijski mail';
