@@ -2,12 +2,11 @@
 
 if( !isset( $_SESSION ) ) session_start();
 
-//echo 'tuu';
+
 require_once __DIR__ . '/app/database/db.class.php';
 
 if( !isset( $_GET['rt'] ) && !isset( $_SESSION['korisnik'] ) ) { //nije nitko ulogiran
 
-    //echo 'yes';
     $controller = 'users';
     $action = 'login';
 
@@ -25,7 +24,6 @@ else if( !isset( $_GET['rt'] ) ) {
 
 else
 {
-    //echo 'no';
     $parts = explode( '/', $_GET['rt'] );
 
     if( isset( $parts[0] ) && preg_match( '/^[A-Za-z0-9]+$/', $parts[0] ) )

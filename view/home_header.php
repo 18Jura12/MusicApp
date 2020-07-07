@@ -79,7 +79,7 @@
             </ul>
 
             <div class="input-group nav navbar-nav navbar-right" style="padding: 15px 15px; margin-right: -15px; margin-left: -15px; max-width: 120px;">
-                <div style="color: white; margin-right: 15px; margin-left: 15px; width: 150%;"><strong><?php echo 'Bok, ' . $_SESSION['korisnik'] . '!'; ?>
+                <div style="color: white; margin-right: 15px; margin-left: 15px; width: 100%;"><strong><?php echo 'Bok, ' . $_SESSION['korisnik'] . '!'; ?>
                     </strong></div>
             </div>
 
