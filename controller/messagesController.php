@@ -5,6 +5,12 @@ require_once __DIR__ . '/../model/message.class.php';
 require_once __DIR__ . '/../model/song.class.php';
 
 class messagesController {
+    
+    /*
+    Funkcija koja za dani id pjesme i danu akciju (lajk/dislajk) ažurira brojevno stanje
+        lajkova/dislajkova u bazi.
+    Vraća novi broj lajkova/dislajkova (povećan za 1).
+    */
     public function lajkovi() {
 
         if( !isset( $_GET[ 'id' ] ) ) {
@@ -23,6 +29,10 @@ class messagesController {
         sendJSONandExit( $komentar->$akcija );
     }
 
+    /*
+    Funkcija koja za dani id pjesme i novoupisani komentar kreira novi komentar u bazi te
+        šalje natrag podatke potrebne za prikaz upravo napravljenog komentara na trenutnoj stranici.
+    */
     public function unosKomentara() {
 
         if( !isset( $_GET[ 'id' ] ) ) {

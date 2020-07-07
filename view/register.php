@@ -25,6 +25,9 @@
     </style>
 </head>
 <body>
+      <!-- Forma za registraciju. 
+          Korisnik popunjava formu, i pri uspješnom popunjavanju dobiva mail za potvrdu registracije.
+      -->
     <form class="form-signin" action="music.php?rt=users/verifyRegister" method="POST">
         <div class="text-center mb-4">
             <h1 class="h3 mb-3 font-weight-normal">Registriraj se!</h1>

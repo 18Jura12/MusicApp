@@ -3,6 +3,10 @@
 require_once __DIR__ . '/home_header.php';
 
 ?>
+<!-- Početna stranica pri ulogiravanju (ili klikom na ikonu MusicApp).
+    Prikazuju se sve pjesme iz zadnje godine (u ovom slučaju 2019.), tj.
+    ime pjesme, izvođdač, zemlja, i dodatne akcije na pjesmu (dodaj, prikaži, plasman).
+-->
 <script type="text/javascript" src="dodaj.js"></script>
 <table class="table">
 <thead class="thead-dark">
@@ -15,19 +19,16 @@ require_once __DIR__ . '/home_header.php';
 <tbody>
 <?php
 foreach($pjesme as $value) {
-
-    //Ako ti se da pokušati poravnati vertikalno sve td-ove, bio bih ti beskrajno zahvalan, ali stvarno je gnjavaža i sve sam probao! Jučer sam se s tim gnjavio par sati... DJELOMICNO
     echo '<tr><th class="align-middle" style="font-size: 30px;  vertical-align: middle;" scope="row">'.$value->flag.'</th>';
     echo '<td class="align-middle" style=" vertical-align: middle;">'.$value->country.'</td>'.'<td class="align-middle" style=" vertical-align: middle;">'.$value->name.'</td>'.'<td class="align-middle" style=" vertical-align: middle;">'.$value->artist.'</td>';
     ?>
     <td>
         <div id=<?php echo $_SESSION['korisnik']; ?> class="align-middle" style="font-size: 30px; ">
-            <!--Ništa od funkcija na linkovima nije implementirano :D-->
-            <!--Ova treba dodati pjesmu u playlistu DODANO --> 
+            <!--Link koji dodaje pjsemu u playlistu. --> 
             <a value=<?php echo $value->id_song; ?> title="Dodaj u popis za reprodukciju" class="dodajPjesmu"><span class="glyphicon glyphicon-plus" style=" vertical-align: middle;"></span></a>&emsp;
-            <!--Ova treba za dati id pjesme otvoriti komentare i lajkove za tu pjesmu unutar nekog prozorčića-->
+            <!--Link koji za dani id pjesme otvara komentare i lajkove za tu pjesmu. -->
             <a title="Otvori pjesmu" href="music.php?rt=songs/showSong&id=<?php echo $value->id_song; ?>"><span class="glyphicon glyphicon-facetime-video" style=" vertical-align: middle;"></span></a>&emsp;
-            <!--Ova otvara rezultate finala i polufinala te godine u kojoj je ta pjesma sudjelovala, može i podebljati tu pjesmu u tablicama :)-->
+            <!--Ova otvara rezultate finala i polufinala te godine u kojoj je ta pjesma sudjelovala, te podebljava kliknutu pjesmu u dobivenim tablicama. -->
             <a title="Pogledaj plasman"href="music.php?rt=songs/plasman&id=<?php echo $value->id_song; ?>"><span class="glyphicon glyphicon-list" style=" vertical-align: middle;"></span></a>
         </div>
     </td>

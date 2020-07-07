@@ -3,22 +3,13 @@
 require_once __DIR__ . '/home_header.php';
 
 ?>
+<!-- Prikaz pojedine pjesme i detalji pjesme:
+    Naslov, izvođač, država, youtube video, komentari korisnika. -->
+
+<!-- Datoteke za rad s komentarima (dodavanje komentara i lajkanje). -->
  <script type="text/javascript" src="komentari.js"></script>
  <script type="text/javascript" src="dodaj.js"></script>
 <style>
-.themed-grid-col {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: rgba(86, 61, 124, .15);
-  border: 1px solid rgba(86, 61, 124, .2);
-}
-
-.themed-container {
-  padding: 15px;
-  margin-bottom: 30px;
-  background-color: rgba(0, 123, 255, .15);
-  border: 1px solid rgba(0, 123, 255, .2);
-}
 
 a.ikone:link, .dodajPjesmu {
   color: rgb(0, 230, 0);
@@ -32,6 +23,7 @@ a.ikone:hover {
 }
 </style>
 
+<!-- Naslov, izvođač i država pjesme. -->
 <section class="jumbotron text-center">
     <div class="container">
       <h1><?php echo $song->name; ?></h1>
@@ -42,10 +34,14 @@ a.ikone:hover {
 </section>
 
 <div style="text-align: center;">
+    <!--  Video pjesme s Eurovizije-->
     <iframe width="80%" height="425" src=<?php echo $song->link_video ?>>
     </iframe>
     <br>
     <br>
+    <!-- Prikaz tablice koja sadrži bodove i mjesto pjesme u polufinalu i finalu.
+        Ukoliko se pjesma nije plasirala u finale, oznaka je '-' (analogno za polufinale).
+    -->
     <table width="80%" style="text-align: center; margin-left: 10%;">
         <tr >
             <th style="text-align: center; background-color: rgb(255, 163, 26); width: 20%;">Polufinale - mjesto</th>
@@ -63,13 +59,17 @@ a.ikone:hover {
     <br>
 
     <div style="text-align: center; font-size: 200%;">
-    <!--Ova treba dodati pjesmu u playlistu DODANO --> 
+    <!--Dodavanje pjesme u playlistu. --> 
     <a title="Dodaj u popis za reprodukciju" value=<?php echo $song->id_song; ?>  class="dodajPjesmu ikone"><span class="glyphicon glyphicon-plus" style=" vertical-align: middle;"></span></a>&emsp;
-    <!--Ova otvara rezultate finala i polufinala te godine u kojoj je ta pjesma sudjelovala, može i podebljati tu pjesmu u tablicama :)-->
-    <a class="ikone" title="Pogledaj plasman"href="music.php?rt=songs/plasman&id=<?php echo $song->id_song; ?>"><span class="glyphicon glyphicon-list" style=" vertical-align: middle;"></span></a>
+    <!--Rezultati finala i polufinala te godine u kojoj je pjesma sudjelovala. -->
+    <a class="ikone" title="Pogledaj plasman"href="music.php?rt=songs/plasman&id=<?php echo $value->id_song; ?>"><span class="glyphicon glyphicon-list" style=" vertical-align: middle;"></span></a>
     </div>
 
     <br>
+    <!-- Komentari korisnika za odabranu pjesmu.
+        Komentari su posloženi tako da su najnoviji na početku, a najstariji na dnu.
+        Postoji mogućnost lajkanja i dislajkanja komenatara. 
+    -->
     <div width="100%" style="text-align: center;">
         <h2>Komentari</h2>
         <div class="input-group" style="padding: 10px 15px; max-width: 100%;">

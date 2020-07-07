@@ -1,9 +1,22 @@
+/*
+Datoteka za obradu lajkova komentara i dodavanje komentara.
+Komentari se prikazuju na stranici pojedine pjesme.
+*/
 $( window ).on( 'load', function() {
-    $( 'body').on( 'click', 'button.lajkovi', obradiLajk );
+    $( 'body').on( 'click', 'button.lajkovi', obradiLajk ); // ažurira se stanje lajkova/dislajkova ukoliko korisnik klikne na lajk/dislajk
 
-    $( '#gumbKomentar' ).on( 'click', dodajKomentar );
+    $( '#gumbKomentar' ).on( 'click', dodajKomentar ); // dodaje se komentar u bazu i prikazuje odmah na stranici
 } );
 
+/*
+@unos : komentar kojeg je korisnik upisao u polje za dodavanje komentara
+@idPjesme : id pjesme koju korisnik trenutno komentira
+
+Funkcija  dodajKomentar šalje @unos i @idPjesme funkciji unosKomentara u messageController-u
+    koja dodaje komentar u bazu. Ukoliko je ubacivanje u bazu uspješno, natrag se šalju sve informacije o komentaru.
+success funkcija stvara novi div koji sadrži komentar, ime osobe koja je kreirala komentar, vrijeme nastanka komentara
+    i lajkove/dislajkove (oboje nula jer je komentar tek kreiran).
+*/
 function dodajKomentar() {
     var unos = $( '#Komentiraj' ).val();
     var idPjesme = $( this ).val();
@@ -53,6 +66,15 @@ function dodajKomentar() {
     }
 }
 
+/*
+@akcija : thums_up ili thumbs_down (ovisno na što je korisnik kliknuo)
+@gumb : kliknuti gumb
+@idKomentara : id komentara kojeg lajkamo/dislajkamo
+
+Funkcija šalje upravo napisane argumente funkciji 'lajkovi' u messagesController-u koja 
+    ažurira stanje lajkova/dislajkova određenog komentara u bazi.
+Ukoliko je sve uspješno provedeno, funkcija success povećava broj lajkova/dislajkova kliknutog komentara.
+*/
 function obradiLajk() {
     var akcija = $( this ).attr( 'title' );
     var gumb = $( this );

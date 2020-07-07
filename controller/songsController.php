@@ -6,6 +6,18 @@ require_once __DIR__ . '/../model/message.class.php';
 
 class songsController {
 
+    /*
+    @user : trenutno ulogirani korisnik
+    @popis : popis predloženih pjesama
+    @songs : pjesme u playlisti korisnika
+    @godine : godine u bazi ( 2018, 2019)
+    @zemlje : zemlje koje sudjeluju u Euroviziji
+
+    Ukoliko korisnik ima pjesama u playlisti, dohvaćamo id-eve tih pjesama te
+        prikazujemo videe pjesama korisniku.
+    Također ukoliko korisnik klikne na gumb za uklanjanje pjesme, izbacujemo ju iz playliste
+        te ažuriramo bazu
+    */
     public function playlist() {
 
         $user = User::find( 'username', $_SESSION['korisnik'] );
@@ -41,6 +53,10 @@ class songsController {
         require_once __DIR__ . '/../view/songList.php';
     }
 
+    /*
+    Funkcija koja pomoću dobivenog id-a pjesme dodaje pjesmu u playlistu korisnika
+        (ukoliko ona već ne postoji u playlisti) te ažurira bazu.
+    */
     public function add() {
 
         $message = 'nije dodano';
@@ -57,7 +73,7 @@ class songsController {
         
         $id = $song->id_song;
         $user = User::find( 'username', $_SESSION['korisnik'] );
-        if( preg_match('/^[\t\s]*$/', $user->songs ) ) {
+        if( preg_match('/^[\t\s]*$/', $user->songs ) ) { //korisnik ima praznu playlistu
             $pjesme = [];
         } else {
             $pjesme = explode(" ", $user->songs);
@@ -65,14 +81,14 @@ class songsController {
         }
         $sadrzano = false;
 
-        foreach( $pjesme as $pjesma ) {
+        foreach( $pjesme as $pjesma ) { 
             if( $pjesma == $id ) {
-                $sadrzano = true;
+                $sadrzano = true; // odabrana pjesma već postoji u playlisti
                 break;
             }
         }
 
-        if( $sadrzano == false ) {
+        if( $sadrzano == false ) { // odabrana pjesma ne postoji u playlisti
             $pjesme[] = $id;
             $user->songs = implode(" ", $pjesme );
             $user->save();
@@ -82,6 +98,12 @@ class songsController {
         sendJSONandExit( $message );
     }
 
+    /*
+    @unos : korisnikov unos u searchBar-u
+
+    Funkcija koja vraća sva imena pjesama koja kao podstring sadrže string koji je korisnik
+        unio u searchBar (neovisno o velikim i malim slovima).
+    */
     public function trazi() {
 
         if( !isset( $_GET[ 'unos' ] ) ) {
@@ -100,6 +122,9 @@ class songsController {
         sendJSONandExit($message);
     }
 
+    /*
+    JURICA :D
+    */
     function year() {
 
         if(!isset($_GET['godina'])) {
@@ -120,21 +145,32 @@ class songsController {
         
     }
 
+    /*
+    @unos : korisnikov unos u searchBar-u
+
+    Funkcija koja vraća id pjesme ukoliko naslov pjesme postoji u bazi.
+    Ukoliko postoji više istih naslova pjesama, vraćamo samo jedan id.
+    */
     function prikazPjesme() {
         if( !isset( $_GET[ 'unos' ] ) ) {
             sendJSONandExit( ['error' => 'Ne postoji $_GET[\'unos\']!' ] );
         }
         $unos = $_GET['unos'];
 
-        $song = Song::find( 'name', $unos );
-        if( $song == NULL ) {
+        $songs = Song::where( 'name', $unos ); 
+
+        if( $songs == NULL ) {
             sendJSONandExit( ['error' => 'Ne postoji pjesma!' ] );
         } else {
-            $message = $song->id_song;
+            $message = $songs[0]->id_song; //ako postoji više pjesama istog naslova, uzimamo prvu dobivenu iz baze
             sendJSONandExit( $message );
         }
     }
 
+    /*
+    Funkcija koja prikazuje detalje pjesme preko danog id-a.
+    Prikazuju se komentari za pjesmu, plasman i ostali detalji.
+    */
     function showSong() {
 
         $song = Song::find( 'id_song', $_GET['id'] );
@@ -150,6 +186,9 @@ class songsController {
 
     }
 
+    /*
+    JURICA :D
+    */
     public function plasman() {
 
         $song = Song::find( 'id_song', $_GET['id'] );
@@ -171,6 +210,9 @@ class songsController {
 
     }
 
+    /*
+    JURICA :D
+    */
     public function zemlja() {
 
         $songs = Song::where('country', $_GET['zemlja']);
@@ -184,6 +226,9 @@ class songsController {
 
     }
 
+    /*
+    JURICA :D
+    */
     public function bodovi() {
 
         $pjesme = Song::where('year',$_GET['godina']);
@@ -198,6 +243,10 @@ class songsController {
 
     }
 
+    /*
+    Funkcija koja za danu godinu pronalazi sve pjesme iz te godine te ih sortira
+        silazno prema bodovima koje su dali korisnici aplikacije.
+    */
     public function poredak() {
 
         $godine = Song::column('year');
@@ -214,9 +263,7 @@ class songsController {
         }
 
         foreach($pjesme as $pjesma) {
-
             $points[] = $pjesma->fan_points;
-
         }
         array_multisort($points, SORT_DESC, $pjesme);
 
@@ -233,6 +280,10 @@ function sendJSONandExit( $message ) {
     exit( 0 );
 }
 
+/*
+Funkcija koja sortira niz prema varijabli 'date', silazno.
+Potrebna je za komentare kako bi se najnoviji komentari prikazivali na vrhu.
+*/
 function date_sort($a, $b) {
     return (-1) *( strtotime($a->date) - strtotime($b->date));
 }

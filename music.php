@@ -16,7 +16,7 @@ if( !isset( $_GET['rt'] ) && !isset( $_SESSION['korisnik'] ) ) { //nije nitko ul
     $controller = 'users';
     $action = 'verifyRegister';
 }
-else if( !isset( $_GET['rt'] ) ) {
+else if( !isset( $_GET['rt'] ) ) { //pocetna stranica
     $controller = 'users';
     $action = 'pocetna';
 }

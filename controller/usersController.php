@@ -1,19 +1,35 @@
 <?php
 
+
 require_once __DIR__ . '/../model/user.class.php';
 require_once __DIR__ . '/../model/song.class.php';
 
 class usersController {
+
+    /*
+    Funkcija koja preusmjerava korisnika na formu za login.
+    */
     public function login() {
         $message = '';
         require_once __DIR__ . '/../view/login.php';
     }
 
+    /*
+    Funkcija koja preusmjerava korisnika na formu za registraciju.
+    */
     public function register() {
         $message = '';
         require_once __DIR__ . '/../view/register.php';
     }
 
+    /*
+    Funkcija koja provjerava podatke koje je korisnik poslao u formi za login.
+    Ukoliko korisnik upiše previše ili premalo slova za korisničko ime,
+        ili se korisničko ime sastoji od nedopuštenih znakova i slično, korisniku
+        se šalje poruka pa pojašnjenja popunjavanja forme, i ponovo mu se prikazuje 
+        forma za login.
+    Ukoliko su podaci u formi ispravni, korisniku se prikazuje njegova početna stranica.
+    */
     public function verifyLogin() {
         if( !preg_match( '/^[a-zA-Z]{3,10}$/', $_POST['username'] ) ) {
             $message = 'Korisničko ime treba imati između 3 i 10 slova.';
@@ -37,18 +53,24 @@ class usersController {
         }
     }
 
+    /*
+    @pjesme : pjesme iz zadnje godine (2019.) koje se prikazuju na početnoj stranici.
+    @popis : niz od 3 predložene pjesme za korisnika
+    @godine : sve godine koje postoje u bazi
+    @zemlje: sve države koje sudjeluju u natjecanju
+    
+    Funkcija koja služi za prikaz pjesama iz određene godine.
+        Ukoliko je korisnik na početnoj stranici, prikazuju se pjesme iz zadnje godine.
+        Ukoliko je korisnik odabrao određenu godinu iz navigation_bar-a, 
+            prikazuju se pjesme iz odabrane godine.
+    */
     public function pocetna() {
 
-        $pjesme = Song::where('year', 2019);
         $popis = User::predlozeno();
         if(!isset($_GET['godina'])) {
-
             $year = 2019;
-
         } else {
-
             $year = $_GET['godina'];
-
         }
         $pjesme = Song::where('year', $year);
         $godine = Song::column('year');
@@ -60,6 +82,13 @@ class usersController {
 
     }
 
+    /*
+    Funkcija koja provjerava korisnikove inpute u formi za registraciju.
+    Ukoliko je nešto krivo uneseno, obavještava se korisnik i ponovno mu se prikazuje
+        forma za registraciju.
+    Ukoliko je korisnik uspješno popunio formu, ubacuje se u bazu, i šalje mu se mail za
+        potvrdu registracije. Također, obavještava se o uspješnosti registracije putem određenog view-a.
+    */
     public function verifyRegister() {
 
         if( !preg_match( '/^[A-Za-z]{3,10}$/', $_POST['usernameReg'] ) ) {
@@ -112,6 +141,9 @@ class usersController {
         }
     }
 
+    /*
+    Funkcija koja ažurira varijablu u bazi da se korisnik uspješno registrirao.
+    */
     public function sanducic() {
         if( !isset( $_GET['niz'] ) || !preg_match( '/^[a-z]{20}$/', $_GET['niz'] ) ) {
             $message = 'Probajte ponovo kliknuti na link u mailu.';
@@ -127,14 +159,15 @@ class usersController {
         require_once __DIR__ . '/../view/mailSuccessful.php';
     }
 
+    /*
+    Ukoliko se korisnik želi odjaviti, uništava se sesija i korisnik se preusmjerava 
+        na formu za login.
+    */
     public function logout() {
-
-        //echo 'tu';
         session_unset();
         session_destroy();
 
         require_once __DIR__ . '/../music.php';
-
     }
 
 }
