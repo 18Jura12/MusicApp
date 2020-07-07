@@ -219,7 +219,14 @@ abstract class Model {
         return $niz;
     }
 
-    //OVO TREBA: INES
+    /*
+    Funkcija koja nalazi tri pjesme za predlaganje korisniku.
+    Ukoliko korisnik ima pjesme u playlisti, gledamo njihove žanrove i biramo onaj žanr 
+        čijih pjesmi ima najviše u playlisti te predlažemo 3 pjesme istog žanra.
+    Ukoliko korisnik nema pjesmi u playlisti, prikazujemo pop pjesme.
+    Isto tako, ako nemamo ukupno 3 pjesme odabranog žanra, nadopunjujemo ih sa pjesmama 
+        čiji je žanr pop.
+    */
     public function predlozeno() {
 
         $user = User::find( 'username', $_SESSION['korisnik'] );
@@ -236,24 +243,24 @@ abstract class Model {
                 }
 
                 $genre = Song::find( 'id_song', $idPjesme )->genre;
-                if( !array_key_exists( $genre, $zanrovi ) ) {
+                if( !array_key_exists( $genre, $zanrovi ) ) { // brojimo pjesme po žanrovima
                     $zanrovi[$genre] = 1;
                 } else {
                     $zanrovi[$genre] += 1;
                 }
             }
 
-            $zanr =array_search( max( $zanrovi ), $zanrovi );
+            $zanr =array_search( max( $zanrovi ), $zanrovi ); //biramo žanr čijih pjesama imamo najviše
             $popis = [];
             $popisBaza = Song::where( 'genre', $zanr );
 
-            if( count( $popisBaza ) < 3 ) {
+            if( count( $popisBaza ) < 3 ) { // nemamo 3 pjesme odabranog žanra
                 $br = 0;
                 foreach( $popisBaza as $value ) {
                     $popis[] = $value;
                     $br += 1;
                 }
-                $popisBaza = Song::where( 'genre', 'pop' );
+                $popisBaza = Song::where( 'genre', 'pop' ); // nadopunimo preostale pjesme sa pop pjesmama
                 $temp = array_rand( $popisBaza, 3-$br );
                 //print_r($temp);
                 if( $br === 2 ) {
@@ -264,14 +271,14 @@ abstract class Model {
                         $popis[] = $pjesma;
                     }
                 }            
-            } else {
+            } else { //imamo 3 pjesme odabranog žanra
                 $temp = array_rand( $popisBaza, 3 );
                 foreach( $temp as $value ) {
                     $pjesma = $popisBaza[$value];
                     $popis[] = $pjesma;
                 }
             }
-        } else { // nemamo nista u playlisti
+        } else { // nemamo nista u playlisti, biramo pop pjesme
             $popisBaza = Song::where( 'genre', 'pop' );
             $temp = array_rand( $popisBaza, 3 );
             foreach( $temp as $value ) {
