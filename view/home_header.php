@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Uključivanje fileova iz bootstrapa, i ostale postavke. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -15,6 +16,7 @@
 
     <title>🎶 MusicApp</title>
 
+    <!-- Navigation bar i linkovi za svaki drop-down meni. -->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -25,6 +27,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Godina
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu navbar-inverse">
+                        <!-- Prikaz po godinama. -->
                         <?php
                         foreach($godine as $godina) {
 
@@ -38,6 +41,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Zemlja
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu navbar-inverse" style="color: white;">
+                        <!-- Prikaz po zemljama. -->
                         <?php
                         foreach($zemlje as $zemlja) {
 
@@ -47,11 +51,13 @@
                         ?>
                     </ul>
                 </li>
+                <!-- Link za vlastitu playlistu. -->
                 <li><a href="music.php?rt=songs/playlist">Moje pjesme</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Moji bodovi
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu navbar-inverse" style="color: white;">
+                        <!-- Prikaz formi za unos bodova i ukupan poredak prema unešenim bodovima. -->
                         <?php
                         foreach($godine as $godina) {
 
@@ -63,15 +69,18 @@
                     </ul>
                 </li>
             </ul>
+            <!-- Link za odjavu -->
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="music.php?rt=users/logout"><span class="glyphicon glyphicon-log-out"></span> Odjava</a></li>
             </ul>
 
+            <!-- Ispis imena korisnika koji je ulogiran. -->
             <div class="input-group nav navbar-nav navbar-right" style="padding: 15px 15px; margin-right: -15px; margin-left: -15px; max-width: 120px;">
                 <div style="color: white; margin-right: 15px; margin-left: 15px; width: 100%;"><strong><?php echo 'Bok, ' . $_SESSION['korisnik'] . '!'; ?>
                     </strong></div>
             </div>
             
+            <!-- Searchbar i suggest lista, zajedno s gumbom za pretragu. -->
             <div class="input-group nav navbar-nav navbar-right" style="padding: 10px 15px; margin-right: -15px; margin-left: -15px; max-width: 320px;">
                 <input list="datalist_pjesme" id="searchBar" type="text" class="form-control" placeholder="Pretraga">
                 <datalist id="datalist_pjesme"></datalist>
@@ -94,6 +103,7 @@
 </head>
 <body>
 
+<!-- Prikaz predloženih pjesama na temelju žanra. -->
 <div class="zaglavlje">
     <table style="width: 100%;">
         <tr>

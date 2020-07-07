@@ -1,3 +1,4 @@
+<!-- View za uspješnu registraciju (potvrđeni mail). -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

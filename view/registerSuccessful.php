@@ -1,3 +1,4 @@
+<!-- View za prijavu prilikom registracije (dobro ispunjena forma, još treba potvrda putem maila). -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

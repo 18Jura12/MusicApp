@@ -3,8 +3,10 @@
 require_once __DIR__ . '/home_header.php';
 
 ?> 
+<!-- Prikaz pjesama koji su u korisnikovoj playlisti. -->
 <main role="main">
 
+  <!-- Naslov stranice gdje se korisnik nalazi. -->
   <section class="jumbotron text-center">
     <div class="container">
       <h2>Popis za reprodukciju</h2>
@@ -12,15 +14,6 @@ require_once __DIR__ . '/home_header.php';
     </div>
   </section>
 
-    
-    <div style="margin: auto; width: 80%; padding: 15px; display: flex;
-        justify-content: center;
-        align-items: center;">
-        <input id="searchBar" class="form-control " type="text" placeholder="Upiši naziv pjesme" aria-label="Search" style="width: 80%;">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Traži pjesmu!</button>
-    </div>
-    
-    <br>
 
   <div class="album py-5 bg-light">
     <div class="container">
@@ -28,6 +21,7 @@ require_once __DIR__ . '/home_header.php';
     <form action="music.php?rt=songs/playlist" method="POST">
     <div id="popis" class="row">
     <?php
+    // Ispis svih pjesama koje se nalaze u korisnikovom popisu.
     foreach( $songs as $song ) {
         $opis = $song->artist . ' - ' . $song->name;
         $value = '"' . $song->id_song . '"';
@@ -38,6 +32,7 @@ require_once __DIR__ . '/home_header.php';
             <div class="card-body">
               <span class="card-text"><?php echo $opis; ?></span>
               <div class="btn-group" style="float: right;">
+                  <!-- Gumb za uklanjanje pjesme iz playliste. -->
                   <button name="ukloni" type="submit" class="btn btn-sm btn-outline-secondary" value=<?php echo $value; ?> >Ukloni</button>
               </div>
             </div>

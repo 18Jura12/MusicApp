@@ -3,6 +3,8 @@
 require_once __DIR__ . '/home_header.php';
 
 ?>
+<!-- Izbor za prikaz bodova iz određene godine.
+    Na klik radio button-a se prikažu bodovi iz određene godine. -->
 <div class="izbor">
     <form class="forma" action="music.php?rt=songs/poredak" method="POST">
         <div style="width:50%; float:left; text-align: center;">
@@ -17,6 +19,7 @@ require_once __DIR__ . '/home_header.php';
 <br>
 <br>
 <br>
+<!-- Prikaz odabrane godine. -->
 <div class="naslov">
     Godina:
     <br>
@@ -24,6 +27,7 @@ require_once __DIR__ . '/home_header.php';
 </div>
 <br>
 
+<!-- Ispis svih pjesama iz tražene godine i prikaz njihovih bodova dobivenih od stane korisnika. -->
 <div class="sadrzaj">
     <p class="ispis" style="text-align: center;" ><i>Bodovi korisnika</i></p>
     <?php

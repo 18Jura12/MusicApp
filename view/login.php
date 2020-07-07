@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <!-- Forma iz bootstrapa, malo prilagođena za našu aplikaciju. -->
     <link href="css/login.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -26,6 +27,7 @@
 
 </head>
 <body>
+      <!-- Login -->
     <form class="form-signin" action="music.php?rt=users/verifyLogin" method="POST">
         <div class="text-center mb-4">
             <h1 class="h3 mb-3 font-weight-normal">Glazbena aplikacija!</h1>
@@ -51,6 +53,7 @@
     </form>
 
 
+    <!-- Registracija -->
     <form action="music.php?rt=users/register" method="POST">
     
         <div class="registracija">

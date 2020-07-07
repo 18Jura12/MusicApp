@@ -2,10 +2,6 @@
 
 if( !isset( $_SESSION ) ) session_start();
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b90557bb12a0b7966f4f4303c1506bd7cd533621
 require_once __DIR__ . '/app/database/db.class.php';
 
 if( !isset( $_GET['rt'] ) && !isset( $_SESSION['korisnik'] ) ) { //nije nitko ulogiran
@@ -20,7 +16,7 @@ if( !isset( $_GET['rt'] ) && !isset( $_SESSION['korisnik'] ) ) { //nije nitko ul
     $controller = 'users';
     $action = 'verifyRegister';
 }
-else if( !isset( $_GET['rt'] ) ) {
+else if( !isset( $_GET['rt'] ) ) { //pocetna stranica
     $controller = 'users';
     $action = 'pocetna';
 }
