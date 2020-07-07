@@ -45,23 +45,12 @@ class songsController {
 
         $message = 'nije dodano';
 
-        if( !isset( $_GET[ 'naziv' ] ) ) {
-            sendJSONandExit( ['error' => 'Ne postoji $_GET[\'naziv\']!' ] );
+        if( !isset( $_GET[ 'id' ] ) ) {
+            sendJSONandExit( ['error' => 'Ne postoji $_GET[\'id\']!' ] );
         }
-        $naziv = $_GET['naziv'];
+        $id = $_GET['id'];
 
-        if( !isset( $_GET[ 'artist' ] ) ) {
-            sendJSONandExit( ['error' => 'Ne postoji $_GET[\'artist\']!' ] );
-        }
-        $izvodjac = $_GET['artist'];
-
-        $songs = Song::where( 'name', $naziv );
-        $song = NULL;
-        foreach( $songs as $value ) { 
-            if( $value->artist === $izvodjac ) { // jedinstveno ime pjesme i izvođača, skupa
-                $song = $value;
-            }
-        }
+        $song = Song::find( 'id_song', $id );
         if( $song == NULL ) {
             sendJSONandExit( ['error' => 'Ne postoji pjesma!' ] );
         }
@@ -202,8 +191,36 @@ class songsController {
         $godine = Song::column('year');
         $zemlje = Song::column('country');
 
+        $popis = User::predlozeno();
+
+
         require_once __DIR__ . '/../view/bodovi.php';
 
+    }
+
+    public function poredak() {
+
+        $godine = Song::column('year');
+        $zemlje = Song::column('country');
+
+        $popis = User::predlozeno();
+
+        if( isset( $_GET['godina'] ) ) {
+            $pjesme = Song::where('year',$_GET['godina']);
+            $year = $_GET['godina'];
+        } else {
+            $pjesme = Song::where('year',$_POST['year']);
+            $year = $_POST['year'];
+        }
+
+        foreach($pjesme as $pjesma) {
+
+            $points[] = $pjesma->fan_points;
+
+        }
+        array_multisort($points, SORT_DESC, $pjesme);
+
+        require_once __DIR__ . '/../view/fanBodovi.php';
     }
 }
 

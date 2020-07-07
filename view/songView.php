@@ -4,6 +4,7 @@ require_once __DIR__ . '/home_header.php';
 
 ?>
  <script type="text/javascript" src="komentari.js"></script>
+ <script type="text/javascript" src="dodaj.js"></script>
 <style>
 .themed-grid-col {
   padding-top: 15px;
@@ -17,6 +18,17 @@ require_once __DIR__ . '/home_header.php';
   margin-bottom: 30px;
   background-color: rgba(0, 123, 255, .15);
   border: 1px solid rgba(0, 123, 255, .2);
+}
+
+a.ikone:link, .dodajPjesmu {
+  color: rgb(0, 230, 0);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a.ikone:hover {
+  color: rgb(0, 153, 51);
+  background-color: transparent;
 }
 </style>
 
@@ -50,6 +62,14 @@ require_once __DIR__ . '/home_header.php';
     </table>
     <br>
 
+    <div style="text-align: center; font-size: 200%;">
+    <!--Ova treba dodati pjesmu u playlistu DODANO --> 
+    <a title="Dodaj u popis za reprodukciju" value=<?php echo $song->id_song; ?>  class="dodajPjesmu ikone"><span class="glyphicon glyphicon-plus" style=" vertical-align: middle;"></span></a>&emsp;
+    <!--Ova otvara rezultate finala i polufinala te godine u kojoj je ta pjesma sudjelovala, može i podebljati tu pjesmu u tablicama :)-->
+    <a class="ikone" title="Pogledaj plasman"href="music.php?rt=songs/plasman&id=<?php echo $value->id_song; ?>"><span class="glyphicon glyphicon-list" style=" vertical-align: middle;"></span></a>
+    </div>
+
+    <br>
     <div width="100%" style="text-align: center;">
         <h2>Komentari</h2>
         <div class="input-group" style="padding: 10px 15px; max-width: 100%;">
