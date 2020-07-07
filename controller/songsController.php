@@ -123,7 +123,8 @@ class songsController {
     }
 
     /*
-    JURICA :D
+    
+    Funkcija koja vraća relevantne podatke za prepoznavanje pjesme, a pjesme filtrira prema zadanoj godini.
     */
     function year() {
 
@@ -187,7 +188,8 @@ class songsController {
     }
 
     /*
-    JURICA :D
+    
+    Funkcija dohvaća sve pjesme iz tražene godine te ih sortira silazno prema plasmanu i šalje na prikaz rezultata natjecanja zadane godine.
     */
     public function plasman() {
 
@@ -211,7 +213,8 @@ class songsController {
     }
 
     /*
-    JURICA :D
+    
+    Funkcija dohvaća sve pjesme iz zadane zemlje i šalje rezultate na prikaz podataka o zadanoj zemlji.
     */
     public function zemlja() {
 
@@ -227,7 +230,8 @@ class songsController {
     }
 
     /*
-    JURICA :D
+    
+    Funkcija dohvaća sve pjesme iz tražene godine i šalje ih prikazu forme za bodovanje pjesama te godine od strane korisnika.
     */
     public function bodovi() {
 

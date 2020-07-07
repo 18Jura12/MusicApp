@@ -1,3 +1,6 @@
+<!-- 
+	Datoteka služi za kreiranje tablica u bazi, sve su tablice podrobnije opisane u odgovarajućim klasama.
+ -->
 <?php
 
 // Stvaramo tablice u bazi (ako već ne postoje od ranije).

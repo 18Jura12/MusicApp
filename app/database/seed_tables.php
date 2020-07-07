@@ -1,6 +1,5 @@
 <?php
 
-// Popunjavamo tablice u bazi "probnim" podacima.
 require_once __DIR__ . '/db.class.php';
 //require_once __DIR__ . '/create_tables.php';
 
@@ -34,6 +33,7 @@ function seed_table_users()
 
 
 // ------------------------------------------
+//Ubacivanje pjesama iz datoteke songs.txt u bazu.
 function seed_table_musicSongs()
 {
 	$db = DB::getConnection();

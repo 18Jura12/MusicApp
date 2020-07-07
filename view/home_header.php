@@ -27,7 +27,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Godina
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu navbar-inverse">
-                        <!-- Prikaz po godinama. -->
+                        <!-- Prikaz pjesama po godinama. -->
                         <?php
                         foreach($godine as $godina) {
 
@@ -41,7 +41,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Zemlja
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu navbar-inverse" style="color: white;">
-                        <!-- Prikaz po zemljama. -->
+                        <!-- Prikaz pjesama po zemljama. -->
                         <?php
                         foreach($zemlje as $zemlja) {
 
