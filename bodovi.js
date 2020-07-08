@@ -55,7 +55,7 @@ $( window ).on( 'load', function() {
             broj = parseInt(points) + 1;
             if(broj > 8) broj++;
             if(broj > 10) broj++;
-            $('input.'+points.toString()).parent().html(html+' '+broj+' '+$('#'+song.toString()).children(0).html());
+            $('input.'+points.toString()).parent().html(html+' '+broj+' '+$('#'+song.toString()).children(0).html() + '&emsp;&emsp;');
     
         }
         //ukoliko je odabrana pjesma za svaki broj bodova, omogući pritisak na gumb za pohranu bodova.

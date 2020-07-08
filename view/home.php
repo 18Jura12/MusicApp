@@ -8,6 +8,14 @@ require_once __DIR__ . '/home_header.php';
     ime pjesme, izvođač, zemlja, i dodatne akcije na pjesmu (dodaj, prikaži, plasman).
 -->
 <script type="text/javascript" src="dodaj.js"></script>
+
+<!-- godina koja je kliknuta -->
+<section class="jumbotron text-center">
+    <div class="container">
+      <h1><?php echo 'Pjesma Eurovizije '.$year. '.'; ?></h1>
+    </div>
+</section>
+
 <table class="table">
 <thead class="thead-dark">
     <tr>

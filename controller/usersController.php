@@ -61,7 +61,7 @@ class usersController {
     @zemlje: sve države koje sudjeluju u natjecanju
     
     Funkcija koja služi za prikaz pjesama iz određene godine.
-        Ukoliko je korisnik na početnoj stranici, prikazuju se pjesme iz zadnje godine.
+        Ukoliko je korisnik na početnoj stranici, prikazuju se pjesme iz zadnje dostupne godine.
         Ukoliko je korisnik odabrao određenu godinu iz navigation_bar-a, 
             prikazuju se pjesme iz odabrane godine.
     */

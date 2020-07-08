@@ -11,7 +11,7 @@ require_once __DIR__ . '/home_header.php';
  <script type="text/javascript" src="dodaj.js"></script>
 <style>
 
-a.ikone:link, .dodajPjesmu {
+a.ikone, .dodajPjesmu {
   color: rgb(0, 230, 0);
   background-color: transparent;
   text-decoration: none;

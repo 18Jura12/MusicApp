@@ -9,7 +9,7 @@ Ova aplikacija predstavlja informacijsku potporu za praćenje Eurovizije.
 
 ### How do I get set up? ###
 
-* Pokreće se preko datoteke music.php.
+* Pokreće se preko datoteke music.php; isprobano na Linux operacijskom sustavu.
 
 ### Who do I talk to? ###
 
