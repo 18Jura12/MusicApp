@@ -52,7 +52,10 @@ $( window ).on( 'load', function() {
             var html = $('input.'+points.toString()).parent().html()
             html = html.substring(0,html.indexOf(">")+1);
             //console.log(html);
-            $('input.'+points.toString()).parent().html(html+' '+$('#'+song.toString()).children(0).html());
+            broj = parseInt(points) + 1;
+            if(broj > 8) broj++;
+            if(broj > 10) broj++;
+            $('input.'+points.toString()).parent().html(html+' '+broj+' '+$('#'+song.toString()).children(0).html());
     
         }
         //ukoliko je odabrana pjesma za svaki broj bodova, omogući pritisak na gumb za pohranu bodova.

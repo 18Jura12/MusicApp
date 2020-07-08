@@ -1,29 +1,16 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Ova aplikacija predstavlja informacijsku potporu za praćenje Eurovizije.
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Sadrži rezultate natjecanja, podatke o svakoj pjesmi koja je sudjelovala, mogućnost glasanja za najdražu pjesmu te
+  playlistu svojih najdražih pjesama, prikaz prema godini, prijedlog pjesama sličnih onima u playlisti.
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
+* Pokreće se preko datoteke music.php.
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+* Ines Kosir, Jurica Jurić

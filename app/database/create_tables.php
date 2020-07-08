@@ -6,10 +6,9 @@
 // Stvaramo tablice u bazi (ako već ne postoje od ranije).
 require_once __DIR__ . '/db.class.php';
 
-// create_table_users();
-// create_table_songs();
-// create_table_messages();
-// create_table_actions();
+create_table_users();
+create_table_songs();
+create_table_messages();
 create_table_points();
 
 exit( 0 );
@@ -129,28 +128,6 @@ function create_table_messages()
 	echo "Napravio tablicu musicMessages.<br />";
 }
 
-
-function create_table_actions()
-{
-	$db = DB::getConnection();
-
-	if( has_table( 'project_actions' ) )
-		exit( 'Tablica project_actions vec postoji. Obrisite ju pa probajte ponovno.' );
-
-	try
-	{
-		$st = $db->prepare( 
-			'CREATE TABLE IF NOT EXISTS project_actions (' .
-			'username varchar(10) PRIMARY KEY NOT NULL,' .
-			'id_song INT PRIMARY KEY NOT NULL)'
-		);
-
-		$st->execute();
-	}
-	catch( PDOException $e ) { exit( "PDO error [create project_actions]: " . $e->getMessage() ); }
-
-	echo "Napravio tablicu project_actions.<br />";
-}
 
 function create_table_points()
 {

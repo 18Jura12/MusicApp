@@ -5,6 +5,22 @@ require_once __DIR__ . '/home_header.php';
 ?>
 <script type="text/javascript" src="bodovi.js"></script>
 <?php
+
+if(!empty($tvoji)) {
+
+    echo '<hr><b>VAŠI PRETHODNO DODIJELJENI BODOVI:<b><br><table style="width=100vw;"><tr>';
+    for($i=0; $i<sizeof($tvoji); $i++) {
+
+        $j = $i+1;
+        if($j > 8) $j++;
+        if($j > 10) $j++;
+        echo '<td>'.$j.' '.$tvoji[$i]->flag.'&emsp;&emsp;</td>';
+
+    }
+    echo '</tr></table><hr>';
+
+}
+
 echo '<div class="row">';
 echo '<div class="col-ml-6">';
 $j = 1;

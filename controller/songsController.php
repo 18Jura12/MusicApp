@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../model/user.class.php';
 require_once __DIR__ . '/../model/song.class.php';
+require_once __DIR__ . '/../model/points.class.php';
 require_once __DIR__ . '/../model/message.class.php';
 
 class songsController {
@@ -240,6 +241,22 @@ class songsController {
         $godine = Song::column('year');
         $zemlje = Song::column('country');
 
+        $temp = Points::find('username', $_SESSION['korisnik']);
+        $stupac = 'godina'.$_GET['godina'];
+        $temp = explode(" ", $temp->$stupac);
+        $tvoji = [];
+        if($temp[0] !== '0') {
+
+            foreach($temp as $id) {
+
+                $tvoji[] = Song::find('id_song', intval($id));
+    
+            }
+
+        }
+
+        //print_r($tvoji);
+
         $popis = User::predlozeno();
 
 
@@ -264,6 +281,20 @@ class songsController {
         } else {
             $pjesme = Song::where('year',$_POST['year']);
             $year = $_POST['year'];
+        }
+
+        $temp = Points::find('username', $_SESSION['korisnik']);
+        $stupac = 'godina'.$year;
+        $temp = explode(" ", $temp->$stupac);
+        $tvoji = [];
+        if($temp[0] !== '0') {
+
+            foreach($temp as $id) {
+
+                $tvoji[] = Song::find('id_song', intval($id));
+    
+            }
+
         }
 
         foreach($pjesme as $pjesma) {

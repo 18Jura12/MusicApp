@@ -2,6 +2,22 @@
 
 require_once __DIR__ . '/home_header.php';
 
+//Ova tablica prikazuje bodove koje je dodijelio korisnik
+if(!empty($tvoji)) {
+
+    echo '<hr>VAŠI BODOVI:<br><table><tr>';
+    for($i=0; $i<sizeof($tvoji); $i++) {
+
+        $j = $i+1;
+        if($j > 8) $j++;
+        if($j > 10) $j++;
+        echo '<td>'.$j.' '.$tvoji[$i]->flag.'&emsp;&emsp;</td>';
+
+    }
+    echo '</tr></table><hr>';
+
+}
+
 ?>
 <!-- Izbor za prikaz bodova iz određene godine.
     Na klik radio button-a se prikažu bodovi iz određene godine. -->
